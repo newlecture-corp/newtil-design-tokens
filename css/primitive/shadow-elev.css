@@ -1,0 +1,12 @@
+/* ===== PRIMITIVE — SHADOW ELEVATION =====
+ * 그림자 단계 (elevation 기반).
+ * 내부 저장소 — --shadow-* semantic 토큰을 쓰세요.
+ */
+
+:root {
+	--_shadow-elev-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--_shadow-elev-2: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--_shadow-elev-3: 0 4px 8px rgba(0, 0, 0, 0.12);
+	--_shadow-elev-4: 0 8px 16px rgba(0, 0, 0, 0.15);
+	--_shadow-elev-5: 0 16px 32px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,12 @@
+/* ===== SEMANTIC — BORDER RADIUS ===== */
+
+:root {
+	--radius-0: var(--_radius-scale-0);
+	--radius-1: var(--_radius-scale-1);
+	--radius-2: var(--_radius-scale-2);
+	--radius-3: var(--_radius-scale-3);
+	--radius-4: var(--_radius-scale-4);
+	--radius-5: var(--_radius-scale-5);
+	--radius-6: var(--_radius-scale-6);
+	--radius-full: 9999px;
+}

@@ -1,0 +1,22 @@
+/* ===== PRIMITIVE — SCALE =====
+ * 길이 계단 (spacing + sizing 공유 primitive). 4px 배수 기반, 큰 값은 간격 확장.
+ * 내부 저장소 — 외부에서 직접 쓰지 마세요. --space-*, --size-* semantic 토큰을 쓰세요.
+ */
+
+:root {
+	--_scale-0: 0;
+	--_scale-1: 2px;
+	--_scale-2: 4px;
+	--_scale-3: 8px;
+	--_scale-4: 12px;
+	--_scale-5: 16px;
+	--_scale-6: 20px;
+	--_scale-7: 24px;
+	--_scale-8: 32px;
+	--_scale-9: 40px;
+	--_scale-10: 48px;
+	--_scale-11: 64px;
+	--_scale-12: 80px;
+	--_scale-13: 96px;
+	--_scale-14: 128px;
+}

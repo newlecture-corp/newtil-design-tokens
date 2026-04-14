@@ -1,0 +1,48 @@
+/* ===== SEMANTIC — SPACING & SIZING =====
+ * Spacing (padding, margin, gap)과 Sizing (width, height)은
+ * 같은 그리드(4px 배수)에 살기 때문에 primitive(--_scale-*)를 공유.
+ * 의미는 구분 — padding을 늘린다고 width가 따라 늘어야 하는 건 아니므로.
+ */
+
+:root {
+	/* Spacing — padding, margin, gap */
+	--space-0: var(--_scale-0);
+	--space-1: var(--_scale-1);
+	--space-2: var(--_scale-2);
+	--space-3: var(--_scale-3);
+	--space-4: var(--_scale-4);
+	--space-5: var(--_scale-5);
+	--space-6: var(--_scale-6);
+	--space-7: var(--_scale-7);
+	--space-8: var(--_scale-8);
+	--space-9: var(--_scale-9);
+	--space-10: var(--_scale-10);
+	--space-11: var(--_scale-11);
+	--space-12: var(--_scale-12);
+	--space-13: var(--_scale-13);
+	--space-14: var(--_scale-14);
+
+	/* Sizing — width, height */
+	--size-0: var(--_scale-0);
+	--size-1: var(--_scale-1);
+	--size-2: var(--_scale-2);
+	--size-3: var(--_scale-3);
+	--size-4: var(--_scale-4);
+	--size-5: var(--_scale-5);
+	--size-6: var(--_scale-6);
+	--size-7: var(--_scale-7);
+	--size-8: var(--_scale-8);
+	--size-9: var(--_scale-9);
+	--size-10: var(--_scale-10);
+	--size-11: var(--_scale-11);
+	--size-12: var(--_scale-12);
+	--size-13: var(--_scale-13);
+	--size-14: var(--_scale-14);
+
+	/* 특수 sizing 값 */
+	--size-full: 100%;
+	--size-half: 50%;
+	--size-auto: auto;
+	--size-screen-w: 100vw;
+	--size-screen-h: 100vh;
+}

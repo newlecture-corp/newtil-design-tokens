@@ -1,0 +1,27 @@
+/* ===== @newtil/design-tokens — ENTRY POINT =====
+ * 2-레이어 토큰 시스템:
+ *   Primitive (--_*)  — raw 값의 저장소. 내부용.
+ *   Semantic          — 역할 기반. 컴포넌트/사용자가 쓰는 토큰.
+ *
+ * 커스터마이징:
+ *   :root { --color-main: #ff6b00; }  ← semantic 오버라이드 권장
+ *   :root { --_hue-green-500: #...; } ← primitive 오버라이드 (고급)
+ */
+
+/* ===== PRIMITIVE LAYER ===== */
+@import "./primitive/scale.css";
+@import "./primitive/hue.css";
+@import "./primitive/radius-scale.css";
+@import "./primitive/font-scale.css";
+@import "./primitive/shadow-elev.css";
+
+/* ===== SEMANTIC LAYER ===== */
+@import "./semantic/spacing.css";
+@import "./semantic/color.css";
+@import "./semantic/radius.css";
+@import "./semantic/border.css";
+@import "./semantic/typography.css";
+@import "./semantic/z-index.css";
+@import "./semantic/opacity.css";
+@import "./semantic/shadow.css";
+@import "./semantic/transition.css";

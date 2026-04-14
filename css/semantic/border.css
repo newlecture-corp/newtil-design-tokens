@@ -1,0 +1,11 @@
+/* ===== SEMANTIC — BORDER WIDTH =====
+ * border-width는 값이 작고 고정적이라 primitive 층 생략.
+ */
+
+:root {
+	--border-width-0: 0;
+	--border-width-1: 1px;
+	--border-width-2: 2px;
+	--border-width-3: 4px;
+	--border-width-4: 8px;
+}

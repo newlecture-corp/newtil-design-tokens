@@ -1,0 +1,200 @@
+/* ===== SEMANTIC — COLOR =====
+ * 역할 기반 색상 토큰. primitive --_hue-* 를 참조.
+ * 컴포넌트는 오직 이 토큰들만 씀 — 다크모드와 무관해짐.
+ *
+ * 다크모드 전략:
+ * - :root 에 light 기본값
+ * - @media (prefers-color-scheme: dark) 로 시스템 자동 대응
+ * - [data-theme="dark|light"] 으로 수동 강제 가능
+ */
+
+:root {
+	/* Brand — main (주 브랜드) */
+	--color-main: var(--_hue-green-500);
+	--color-main-hover: var(--_hue-green-600);
+	--color-main-active: var(--_hue-green-700);
+	--color-main-subtle: var(--_hue-green-100);
+	--color-main-contrast: #ffffff;
+
+	/* Brand — sub (보조) */
+	--color-sub: var(--_hue-blue-500);
+	--color-sub-hover: var(--_hue-blue-600);
+	--color-sub-subtle: var(--_hue-blue-100);
+	--color-sub-contrast: #ffffff;
+
+	/* Accent (강조) */
+	--color-accent: var(--_hue-amber-500);
+	--color-accent-hover: var(--_hue-amber-600);
+	--color-accent-subtle: var(--_hue-amber-100);
+	--color-accent-contrast: var(--_hue-gray-900);
+
+	/* Surface (배경) */
+	--color-surface: #ffffff;
+	--color-surface-subtle: var(--_hue-gray-50);
+	--color-surface-muted: var(--_hue-gray-100);
+	--color-surface-inverse: var(--_hue-gray-900);
+
+	/* Text */
+	--color-text: var(--_hue-gray-900);
+	--color-text-muted: var(--_hue-gray-600);
+	--color-text-subtle: var(--_hue-gray-400);
+	--color-text-inverse: #ffffff;
+	--color-text-on-main: var(--color-main-contrast);
+	--color-text-on-sub: var(--color-sub-contrast);
+	--color-text-on-accent: var(--color-accent-contrast);
+
+	/* Border */
+	--color-border: var(--_hue-gray-200);
+	--color-border-strong: var(--_hue-gray-400);
+	--color-border-subtle: var(--_hue-gray-100);
+
+	/* Status */
+	--color-success: var(--_hue-emerald-500);
+	--color-success-subtle: var(--_hue-emerald-100);
+	--color-success-contrast: #ffffff;
+
+	--color-warning: var(--_hue-amber-500);
+	--color-warning-subtle: var(--_hue-amber-100);
+	--color-warning-contrast: var(--_hue-gray-900);
+
+	--color-danger: var(--_hue-red-500);
+	--color-danger-subtle: var(--_hue-red-100);
+	--color-danger-contrast: #ffffff;
+
+	/* Focus ring */
+	--color-focus-ring: var(--_hue-blue-400);
+}
+
+/* Dark — 시스템 자동 반영 */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-main: var(--_hue-green-400);
+		--color-main-hover: var(--_hue-green-300);
+		--color-main-active: var(--_hue-green-200);
+		--color-main-subtle: var(--_hue-green-900);
+		--color-main-contrast: var(--_hue-gray-950);
+
+		--color-sub: var(--_hue-blue-400);
+		--color-sub-hover: var(--_hue-blue-300);
+		--color-sub-subtle: var(--_hue-blue-900);
+		--color-sub-contrast: var(--_hue-gray-950);
+
+		--color-accent: var(--_hue-amber-400);
+		--color-accent-hover: var(--_hue-amber-300);
+		--color-accent-subtle: var(--_hue-amber-900);
+		--color-accent-contrast: var(--_hue-gray-950);
+
+		--color-surface: var(--_hue-gray-950);
+		--color-surface-subtle: var(--_hue-gray-900);
+		--color-surface-muted: var(--_hue-gray-800);
+		--color-surface-inverse: var(--_hue-gray-50);
+
+		--color-text: var(--_hue-gray-100);
+		--color-text-muted: var(--_hue-gray-400);
+		--color-text-subtle: var(--_hue-gray-600);
+		--color-text-inverse: var(--_hue-gray-900);
+
+		--color-border: var(--_hue-gray-800);
+		--color-border-strong: var(--_hue-gray-600);
+		--color-border-subtle: var(--_hue-gray-900);
+
+		--color-success: var(--_hue-emerald-400);
+		--color-success-subtle: var(--_hue-emerald-900);
+
+		--color-warning: var(--_hue-amber-400);
+		--color-warning-subtle: var(--_hue-amber-900);
+
+		--color-danger: var(--_hue-red-400);
+		--color-danger-subtle: var(--_hue-red-900);
+
+		--color-focus-ring: var(--_hue-blue-300);
+	}
+}
+
+/* Dark — 수동 강제 (시스템 설정 무시) */
+[data-theme="dark"] {
+	--color-main: var(--_hue-green-400);
+	--color-main-hover: var(--_hue-green-300);
+	--color-main-active: var(--_hue-green-200);
+	--color-main-subtle: var(--_hue-green-900);
+	--color-main-contrast: var(--_hue-gray-950);
+
+	--color-sub: var(--_hue-blue-400);
+	--color-sub-hover: var(--_hue-blue-300);
+	--color-sub-subtle: var(--_hue-blue-900);
+	--color-sub-contrast: var(--_hue-gray-950);
+
+	--color-accent: var(--_hue-amber-400);
+	--color-accent-hover: var(--_hue-amber-300);
+	--color-accent-subtle: var(--_hue-amber-900);
+	--color-accent-contrast: var(--_hue-gray-950);
+
+	--color-surface: var(--_hue-gray-950);
+	--color-surface-subtle: var(--_hue-gray-900);
+	--color-surface-muted: var(--_hue-gray-800);
+	--color-surface-inverse: var(--_hue-gray-50);
+
+	--color-text: var(--_hue-gray-100);
+	--color-text-muted: var(--_hue-gray-400);
+	--color-text-subtle: var(--_hue-gray-600);
+	--color-text-inverse: var(--_hue-gray-900);
+
+	--color-border: var(--_hue-gray-800);
+	--color-border-strong: var(--_hue-gray-600);
+	--color-border-subtle: var(--_hue-gray-900);
+
+	--color-success: var(--_hue-emerald-400);
+	--color-success-subtle: var(--_hue-emerald-900);
+
+	--color-warning: var(--_hue-amber-400);
+	--color-warning-subtle: var(--_hue-amber-900);
+
+	--color-danger: var(--_hue-red-400);
+	--color-danger-subtle: var(--_hue-red-900);
+
+	--color-focus-ring: var(--_hue-blue-300);
+}
+
+/* Light — 수동 강제 (시스템이 dark여도 light로 고정) */
+[data-theme="light"] {
+	--color-main: var(--_hue-green-500);
+	--color-main-hover: var(--_hue-green-600);
+	--color-main-active: var(--_hue-green-700);
+	--color-main-subtle: var(--_hue-green-100);
+	--color-main-contrast: #ffffff;
+
+	--color-sub: var(--_hue-blue-500);
+	--color-sub-hover: var(--_hue-blue-600);
+	--color-sub-subtle: var(--_hue-blue-100);
+	--color-sub-contrast: #ffffff;
+
+	--color-accent: var(--_hue-amber-500);
+	--color-accent-hover: var(--_hue-amber-600);
+	--color-accent-subtle: var(--_hue-amber-100);
+	--color-accent-contrast: var(--_hue-gray-900);
+
+	--color-surface: #ffffff;
+	--color-surface-subtle: var(--_hue-gray-50);
+	--color-surface-muted: var(--_hue-gray-100);
+	--color-surface-inverse: var(--_hue-gray-900);
+
+	--color-text: var(--_hue-gray-900);
+	--color-text-muted: var(--_hue-gray-600);
+	--color-text-subtle: var(--_hue-gray-400);
+	--color-text-inverse: #ffffff;
+
+	--color-border: var(--_hue-gray-200);
+	--color-border-strong: var(--_hue-gray-400);
+	--color-border-subtle: var(--_hue-gray-100);
+
+	--color-success: var(--_hue-emerald-500);
+	--color-success-subtle: var(--_hue-emerald-100);
+
+	--color-warning: var(--_hue-amber-500);
+	--color-warning-subtle: var(--_hue-amber-100);
+
+	--color-danger: var(--_hue-red-500);
+	--color-danger-subtle: var(--_hue-red-100);
+
+	--color-focus-ring: var(--_hue-blue-400);
+}

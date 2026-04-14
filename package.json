@@ -6,11 +6,13 @@
 		"access": "public"
 	},
 	"type": "module",
-	"main": "./css/variables.css",
-	"style": "./css/variables.css",
+	"main": "./css/index.css",
+	"style": "./css/index.css",
 	"exports": {
-		".": "./css/variables.css",
-		"./variables.css": "./css/variables.css",
+		".": "./css/index.css",
+		"./index.css": "./css/index.css",
+		"./primitive/*": "./css/primitive/*",
+		"./semantic/*": "./css/semantic/*",
 		"./package.json": "./package.json"
 	},
 	"keywords": [

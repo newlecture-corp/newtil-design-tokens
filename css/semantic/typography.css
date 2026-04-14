@@ -1,0 +1,29 @@
+/* ===== SEMANTIC — TYPOGRAPHY ===== */
+
+:root {
+	/* Font size — 역할 기반 */
+	--font-size-caption: var(--_font-scale-1);   /* 12px */
+	--font-size-body-sm: var(--_font-scale-2);   /* 14px */
+	--font-size-body: var(--_font-scale-3);      /* 16px */
+	--font-size-body-lg: var(--_font-scale-4);   /* 18px */
+	--font-size-heading-sm: var(--_font-scale-5); /* 20px */
+	--font-size-heading-md: var(--_font-scale-6); /* 24px */
+	--font-size-heading-lg: var(--_font-scale-7); /* 32px */
+	--font-size-display: var(--_font-scale-8);   /* 48px */
+
+	/* Font weight */
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	/* Line height */
+	--line-height-tight: 1.2;
+	--line-height-normal: 1.5;
+	--line-height-loose: 1.75;
+
+	/* Letter spacing */
+	--letter-spacing-tight: -0.02em;
+	--letter-spacing-normal: 0;
+	--letter-spacing-wide: 0.02em;
+}

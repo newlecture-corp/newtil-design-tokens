@@ -1,0 +1,85 @@
+/* ===== PRIMITIVE — HUE =====
+ * 색상 팔레트. Hue × Shade 매트릭스.
+ * 내부 저장소 — 외부에서 직접 쓰지 마세요. --color-* semantic 토큰을 쓰세요.
+ * 팔레트 범위: gray, green(brand), blue, red, amber, emerald.
+ */
+
+:root {
+	/* Gray — 뉴트럴 회색 계열 */
+	--_hue-gray-50: #fafafa;
+	--_hue-gray-100: #f5f5f5;
+	--_hue-gray-200: #e5e5e5;
+	--_hue-gray-300: #d4d4d4;
+	--_hue-gray-400: #a3a3a3;
+	--_hue-gray-500: #737373;
+	--_hue-gray-600: #525252;
+	--_hue-gray-700: #404040;
+	--_hue-gray-800: #262626;
+	--_hue-gray-900: #171717;
+	--_hue-gray-950: #0a0a0a;
+
+	/* Green — 브랜드 메인 컬러 (500 = #8cba35 근사) */
+	--_hue-green-50: #f7fee7;
+	--_hue-green-100: #ecfccb;
+	--_hue-green-200: #d9f99d;
+	--_hue-green-300: #bef264;
+	--_hue-green-400: #a3e635;
+	--_hue-green-500: #8cba35;
+	--_hue-green-600: #65a30d;
+	--_hue-green-700: #4d7c0f;
+	--_hue-green-800: #3f6212;
+	--_hue-green-900: #365314;
+	--_hue-green-950: #1a2e05;
+
+	/* Blue — 서브/인포 컬러 */
+	--_hue-blue-50: #eff6ff;
+	--_hue-blue-100: #dbeafe;
+	--_hue-blue-200: #bfdbfe;
+	--_hue-blue-300: #93c5fd;
+	--_hue-blue-400: #60a5fa;
+	--_hue-blue-500: #3b82f6;
+	--_hue-blue-600: #2563eb;
+	--_hue-blue-700: #1d4ed8;
+	--_hue-blue-800: #1e40af;
+	--_hue-blue-900: #1e3a8a;
+	--_hue-blue-950: #172554;
+
+	/* Red — danger */
+	--_hue-red-50: #fef2f2;
+	--_hue-red-100: #fee2e2;
+	--_hue-red-200: #fecaca;
+	--_hue-red-300: #fca5a5;
+	--_hue-red-400: #f87171;
+	--_hue-red-500: #ef4444;
+	--_hue-red-600: #dc2626;
+	--_hue-red-700: #b91c1c;
+	--_hue-red-800: #991b1b;
+	--_hue-red-900: #7f1d1d;
+	--_hue-red-950: #450a0a;
+
+	/* Amber — warning */
+	--_hue-amber-50: #fffbeb;
+	--_hue-amber-100: #fef3c7;
+	--_hue-amber-200: #fde68a;
+	--_hue-amber-300: #fcd34d;
+	--_hue-amber-400: #fbbf24;
+	--_hue-amber-500: #f59e0b;
+	--_hue-amber-600: #d97706;
+	--_hue-amber-700: #b45309;
+	--_hue-amber-800: #92400e;
+	--_hue-amber-900: #78350f;
+	--_hue-amber-950: #451a03;
+
+	/* Emerald — success */
+	--_hue-emerald-50: #ecfdf5;
+	--_hue-emerald-100: #d1fae5;
+	--_hue-emerald-200: #a7f3d0;
+	--_hue-emerald-300: #6ee7b7;
+	--_hue-emerald-400: #34d399;
+	--_hue-emerald-500: #10b981;
+	--_hue-emerald-600: #059669;
+	--_hue-emerald-700: #047857;
+	--_hue-emerald-800: #065f46;
+	--_hue-emerald-900: #064e3b;
+	--_hue-emerald-950: #022c22;
+}

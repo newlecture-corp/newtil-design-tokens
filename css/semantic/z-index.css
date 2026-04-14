@@ -1,0 +1,14 @@
+/* ===== SEMANTIC — Z-INDEX =====
+ * 역할 기반. 사이 간격을 두어 중간 레이어 삽입 가능.
+ */
+
+:root {
+	--z-base: 0;
+	--z-dropdown: 100;
+	--z-sticky: 200;
+	--z-overlay: 300;
+	--z-modal: 400;
+	--z-popover: 500;
+	--z-toast: 600;
+	--z-tooltip: 700;
+}

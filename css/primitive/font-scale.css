@@ -1,0 +1,15 @@
+/* ===== PRIMITIVE — FONT SCALE =====
+ * 타이포그래피 크기 계단.
+ * 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
+ */
+
+:root {
+	--_font-scale-1: 12px;
+	--_font-scale-2: 14px;
+	--_font-scale-3: 16px;
+	--_font-scale-4: 18px;
+	--_font-scale-5: 20px;
+	--_font-scale-6: 24px;
+	--_font-scale-7: 32px;
+	--_font-scale-8: 48px;
+}

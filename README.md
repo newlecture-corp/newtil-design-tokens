@@ -25,26 +25,56 @@ npm install @newtil/design-tokens
 @import "@newtil/design-tokens";
 ```
 
-또는
+이렇게 하면 `:root`에 모든 CSS 변수가 정의됩니다.
+
+## 구조 — 2-레이어
+
+- **Primitive** (`--_*` prefix): raw 값의 저장소. 내부용.
+  - `--_scale-*` (길이 계단)
+  - `--_hue-{name}-{shade}` (색상 팔레트)
+  - `--_radius-scale-*`, `--_font-scale-*`, `--_shadow-elev-*`
+- **Semantic**: 역할 기반. 사용자·컴포넌트가 쓰는 토큰.
+  - `--color-main`, `--color-surface`, `--color-text` 등
+  - `--space-*`, `--size-*`, `--radius-*`, `--border-width-*`
+  - `--font-size-{caption|body|heading-*|display}`
+  - `--z-*`, `--opacity-*`, `--shadow-*`, `--duration-*`, `--ease-*`
+
+## 카테고리별 Import
+
+특정 카테고리만 필요하면:
 
 ```css
-@import "@newtil/design-tokens/variables.css";
+@import "@newtil/design-tokens/semantic/color.css";
+@import "@newtil/design-tokens/semantic/spacing.css";
 ```
-
-이렇게 하면 `:root`에 모든 CSS 변수가 정의됩니다.
 
 ## 커스터마이징
 
-본인 프로젝트의 CSS에서 변수를 재정의:
+Semantic 오버라이드 (권장):
 
 ```css
 @import "@newtil/design-tokens";
 
 :root {
-	--color-main-1: #ff6b00;
+	--color-main: #ff6b00;
 	--space-4: 1.25rem;
 }
 ```
+
+Primitive 오버라이드 (고급 — 팔레트 전체 교체):
+
+```css
+:root {
+	--_hue-green-500: #8cba35;
+	--_hue-green-600: #6e9528;
+	/* ... */
+}
+```
+
+## 다크모드
+
+- **시스템 자동**: `@media (prefers-color-scheme: dark)` 자동 반영 — 별도 코드 불필요.
+- **수동 강제**: `<html data-theme="dark">` 또는 `<html data-theme="light">`.
 
 ## 출처
 

@@ -1,0 +1,10 @@
+/* ===== SEMANTIC — SHADOW ===== */
+
+:root {
+	--shadow-sm: var(--_shadow-elev-1);
+	--shadow-md: var(--_shadow-elev-2);
+	--shadow-lg: var(--_shadow-elev-3);
+	--shadow-xl: var(--_shadow-elev-4);
+	--shadow-2xl: var(--_shadow-elev-5);
+	--shadow-none: none;
+}
