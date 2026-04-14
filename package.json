@@ -1,0 +1,37 @@
+{
+	"name": "@newtil/design-tokens",
+	"version": "0.1.0",
+	"description": "Shared CSS design tokens (variables) for the newtil ecosystem — colors, spacing, sizes, shadows, typography",
+	"publishConfig": {
+		"access": "public"
+	},
+	"type": "module",
+	"main": "./css/variables.css",
+	"style": "./css/variables.css",
+	"exports": {
+		".": "./css/variables.css",
+		"./variables.css": "./css/variables.css",
+		"./package.json": "./package.json"
+	},
+	"keywords": [
+		"css",
+		"design tokens",
+		"css variables",
+		"design system"
+	],
+	"author": "lectureteam",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/newlecture-corp/newtil-design-tokens.git"
+	},
+	"bugs": {
+		"url": "https://github.com/newlecture-corp/newtil-design-tokens/issues"
+	},
+	"homepage": "https://github.com/newlecture-corp/newtil-design-tokens#readme",
+	"files": [
+		"css",
+		"README.md",
+		"LICENSE"
+	]
+}
