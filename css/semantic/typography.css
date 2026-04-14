@@ -1,7 +1,7 @@
 /* ===== SEMANTIC — TYPOGRAPHY ===== */
 
 :root {
-	/* Font size — 역할 기반 */
+	/* Font size — 역할 기반 (텍스트 콘텐츠용) */
 	--font-size-caption: var(--_font-scale-1);   /* 12px */
 	--font-size-body-sm: var(--_font-scale-2);   /* 14px */
 	--font-size-body: var(--_font-scale-3);      /* 16px */
@@ -10,6 +10,16 @@
 	--font-size-heading-md: var(--_font-scale-6); /* 24px */
 	--font-size-heading-lg: var(--_font-scale-7); /* 32px */
 	--font-size-display: var(--_font-scale-8);   /* 48px */
+
+	/* Font size — 스케일 별칭 (컴포넌트·UI 요소용, 역할 구분 불필요할 때) */
+	--font-size-xs: var(--_font-scale-1);   /* 12px */
+	--font-size-sm: var(--_font-scale-2);   /* 14px */
+	--font-size-md: var(--_font-scale-3);   /* 16px (기본) */
+	--font-size-lg: var(--_font-scale-4);   /* 18px */
+	--font-size-xl: var(--_font-scale-5);   /* 20px */
+	--font-size-2xl: var(--_font-scale-6);  /* 24px */
+	--font-size-3xl: var(--_font-scale-7);  /* 32px */
+	--font-size-4xl: var(--_font-scale-8);  /* 48px */
 
 	/* Font weight */
 	--font-weight-regular: 400;

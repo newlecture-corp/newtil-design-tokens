@@ -34,9 +34,12 @@ npm install @newtil/design-tokens
   - `--_hue-{name}-{shade}` (색상 팔레트)
   - `--_radius-scale-*`, `--_font-scale-*`, `--_shadow-elev-*`
 - **Semantic**: 역할 기반. 사용자·컴포넌트가 쓰는 토큰.
-  - `--color-main`, `--color-surface`, `--color-text` 등
+  - Brand: `--color-primary`, `--color-secondary`, `--color-tertiary` (각 `-hover`/`-active`/`-subtle`/`-on-*`)
+  - Status: `--color-success`, `--color-warning`, `--color-danger` (동일 패턴)
+  - Surface/Text/Border: 역할 기반 (`--color-surface`, `--color-text`, `--color-border` 등)
+  - 전경색: `--color-on-primary` 등 (Material Design `on-` prefix 관례)
   - `--space-*`, `--size-*`, `--radius-*`, `--border-width-*`
-  - `--font-size-{caption|body|heading-*|display}`
+  - `--font-size-*` (역할 `body/heading-*` + 스케일 `sm/md/lg/xl` 둘 다)
   - `--z-*`, `--opacity-*`, `--shadow-*`, `--duration-*`, `--ease-*`
 
 ## 카테고리별 Import
@@ -56,7 +59,7 @@ Semantic 오버라이드 (권장):
 @import "@newtil/design-tokens";
 
 :root {
-	--color-main: #ff6b00;
+	--color-primary: #ff6b00;
 	--space-4: 1.25rem;
 }
 ```
