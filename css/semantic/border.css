@@ -1,11 +1,13 @@
 /* ===== SEMANTIC — BORDER WIDTH =====
  * border-width는 값이 작고 고정적이라 primitive 층 생략.
+ * 단위: rem. 시스템 전체 일관 스케일링 정책에 따름.
+ * (1rem = 16px 기준. 사용자가 루트 font-size 변경 시 보더도 비례 확대됨.)
  */
 
 :root {
 	--border-width-0: 0;
-	--border-width-1: 1px;
-	--border-width-2: 2px;
-	--border-width-3: 4px;
-	--border-width-4: 8px;
+	--border-width-1: 0.0625rem;  /* 1px */
+	--border-width-2: 0.125rem;   /* 2px */
+	--border-width-3: 0.25rem;    /* 4px */
+	--border-width-4: 0.5rem;     /* 8px */
 }

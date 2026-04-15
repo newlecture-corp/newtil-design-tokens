@@ -1,14 +1,15 @@
 /* ===== PRIMITIVE — RADIUS SCALE =====
  * border-radius용 독립 계단. spacing과 값이 겹치지만 스케일 특성이 달라 분리.
+ * 단위: rem (1rem = 16px 기본). 비례 스케일링.
  * 내부 저장소 — --radius-* semantic 토큰을 쓰세요.
  */
 
 :root {
 	--_radius-scale-0: 0;
-	--_radius-scale-1: 2px;
-	--_radius-scale-2: 4px;
-	--_radius-scale-3: 8px;
-	--_radius-scale-4: 12px;
-	--_radius-scale-5: 16px;
-	--_radius-scale-6: 24px;
+	--_radius-scale-1: 0.125rem;  /* 2px */
+	--_radius-scale-2: 0.25rem;   /* 4px */
+	--_radius-scale-3: 0.5rem;    /* 8px */
+	--_radius-scale-4: 0.75rem;   /* 12px */
+	--_radius-scale-5: 1rem;      /* 16px */
+	--_radius-scale-6: 1.5rem;    /* 24px */
 }
