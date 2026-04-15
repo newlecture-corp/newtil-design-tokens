@@ -2,10 +2,12 @@
  * Spacing (padding, margin, gap)과 Sizing (width, height)은
  * 같은 그리드(4px 배수)에 살기 때문에 primitive(--_scale-*)를 공유.
  * 의미는 구분 — padding을 늘린다고 width가 따라 늘어야 하는 건 아니므로.
+ *
+ * 단위는 모두 rem (--_scale-*가 rem 기반). 루트 font-size 조정 시 비례 확대.
  */
 
 :root {
-	/* Spacing — padding, margin, gap */
+	/* ===== Spacing — padding, margin, gap ===== */
 	--space-0: var(--_scale-0);
 	--space-1: var(--_scale-1);
 	--space-2: var(--_scale-2);
@@ -22,7 +24,8 @@
 	--space-13: var(--_scale-13);
 	--space-14: var(--_scale-14);
 
-	/* Sizing — width, height */
+	/* ===== Sizing — width, height ===== */
+	/* 스케일 값 (rem) — space와 동일 그리드 */
 	--size-0: var(--_scale-0);
 	--size-1: var(--_scale-1);
 	--size-2: var(--_scale-2);
@@ -39,10 +42,35 @@
 	--size-13: var(--_scale-13);
 	--size-14: var(--_scale-14);
 
-	/* 특수 sizing 값 */
+	/* 분수 size (퍼센트) — 컬럼 분할 등에 사용 */
+	--size-1-2: 50%;
+	--size-1-3: 33.333333%;
+	--size-2-3: 66.666667%;
+	--size-1-4: 25%;
+	--size-3-4: 75%;
+	--size-1-5: 20%;
+	--size-2-5: 40%;
+	--size-3-5: 60%;
+	--size-4-5: 80%;
+	--size-1-6: 16.666667%;
+	--size-5-6: 83.333333%;
+	--size-1-12: 8.333333%;
+	--size-5-12: 41.666667%;
+	--size-7-12: 58.333333%;
+	--size-11-12: 91.666667%;
+
+	/* 뷰포트 비율 size */
+	--size-screen-w-25: 25vw;
+	--size-screen-w-50: 50vw;
+	--size-screen-w-75: 75vw;
+	--size-screen-w: 100vw;        /* full */
+	--size-screen-h-25: 25vh;
+	--size-screen-h-50: 50vh;
+	--size-screen-h-75: 75vh;
+	--size-screen-h: 100vh;        /* full */
+
+	/* 키워드 size */
 	--size-full: 100%;
 	--size-half: 50%;
 	--size-auto: auto;
-	--size-screen-w: 100vw;
-	--size-screen-h: 100vh;
 }

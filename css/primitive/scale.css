@@ -1,22 +1,23 @@
 /* ===== PRIMITIVE — SCALE =====
- * 길이 계단 (spacing + sizing 공유 primitive). 4px 배수 기반, 큰 값은 간격 확장.
+ * 길이 계단 (spacing + sizing 공유 primitive). 4px 그리드 기반.
+ * 단위: rem (1rem = 16px 기본). 루트 font-size 변경 시 비례 확대됨.
  * 내부 저장소 — 외부에서 직접 쓰지 마세요. --space-*, --size-* semantic 토큰을 쓰세요.
  */
 
 :root {
 	--_scale-0: 0;
-	--_scale-1: 2px;
-	--_scale-2: 4px;
-	--_scale-3: 8px;
-	--_scale-4: 12px;
-	--_scale-5: 16px;
-	--_scale-6: 20px;
-	--_scale-7: 24px;
-	--_scale-8: 32px;
-	--_scale-9: 40px;
-	--_scale-10: 48px;
-	--_scale-11: 64px;
-	--_scale-12: 80px;
-	--_scale-13: 96px;
-	--_scale-14: 128px;
+	--_scale-1: 0.125rem;  /* 2px */
+	--_scale-2: 0.25rem;   /* 4px */
+	--_scale-3: 0.5rem;    /* 8px */
+	--_scale-4: 0.75rem;   /* 12px */
+	--_scale-5: 1rem;      /* 16px */
+	--_scale-6: 1.25rem;   /* 20px */
+	--_scale-7: 1.5rem;    /* 24px */
+	--_scale-8: 2rem;      /* 32px */
+	--_scale-9: 2.5rem;    /* 40px */
+	--_scale-10: 3rem;     /* 48px */
+	--_scale-11: 4rem;     /* 64px */
+	--_scale-12: 5rem;     /* 80px */
+	--_scale-13: 6rem;     /* 96px */
+	--_scale-14: 8rem;     /* 128px */
 }
