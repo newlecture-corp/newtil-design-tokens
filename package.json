@@ -6,10 +6,11 @@
 		"access": "public"
 	},
 	"type": "module",
-	"main": "./css/index.css",
-	"style": "./css/index.css",
+	"main": "./dist/tokens.css",
+	"style": "./dist/tokens.css",
 	"exports": {
-		".": "./css/index.css",
+		".": "./dist/tokens.css",
+		"./tokens.css": "./dist/tokens.css",
 		"./index.css": "./css/index.css",
 		"./primitive/*": "./css/primitive/*",
 		"./semantic/*": "./css/semantic/*",
@@ -31,8 +32,12 @@
 		"url": "https://github.com/newlecture-corp/newtil-design-tokens/issues"
 	},
 	"homepage": "https://github.com/newlecture-corp/newtil-design-tokens#readme",
+	"scripts": {
+		"build": "cat css/primitive/*.css css/semantic/*.css > dist/tokens.css"
+	},
 	"files": [
 		"css",
+		"dist",
 		"README.md",
 		"LICENSE"
 	]
