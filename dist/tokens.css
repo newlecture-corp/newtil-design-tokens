@@ -1,25 +1,18 @@
-/* ===== PRIMITIVE — SCALE =====
- * 길이 계단 (spacing + sizing 공유 primitive). 4px 그리드 기반.
- * 단위: rem (1rem = 16px 기본). 루트 font-size 변경 시 비례 확대됨.
- * 내부 저장소 — 외부에서 직접 쓰지 마세요. --space-*, --size-* semantic 토큰을 쓰세요.
+/* ===== PRIMITIVE — FONT SCALE =====
+ * 타이포그래피 크기 계단.
+ * 단위: rem (1rem = 16px 기본).
+ * 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
  */
 
 :root {
-	--_scale-0: 0;
-	--_scale-1: 0.125rem;  /* 2px */
-	--_scale-2: 0.25rem;   /* 4px */
-	--_scale-3: 0.5rem;    /* 8px */
-	--_scale-4: 0.75rem;   /* 12px */
-	--_scale-5: 1rem;      /* 16px */
-	--_scale-6: 1.25rem;   /* 20px */
-	--_scale-7: 1.5rem;    /* 24px */
-	--_scale-8: 2rem;      /* 32px */
-	--_scale-9: 2.5rem;    /* 40px */
-	--_scale-10: 3rem;     /* 48px */
-	--_scale-11: 4rem;     /* 64px */
-	--_scale-12: 5rem;     /* 80px */
-	--_scale-13: 6rem;     /* 96px */
-	--_scale-14: 8rem;     /* 128px */
+	--_font-scale-1: 0.75rem;    /* 12px */
+	--_font-scale-2: 0.875rem;   /* 14px */
+	--_font-scale-3: 1rem;       /* 16px */
+	--_font-scale-4: 1.125rem;   /* 18px */
+	--_font-scale-5: 1.25rem;    /* 20px */
+	--_font-scale-6: 1.5rem;     /* 24px */
+	--_font-scale-7: 2rem;       /* 32px */
+	--_font-scale-8: 3rem;       /* 48px */
 }
 /* ===== PRIMITIVE — HUE =====
  * 색상 팔레트. Hue × Shade 매트릭스.
@@ -121,21 +114,28 @@
 	--_radius-scale-5: 1rem;      /* 16px */
 	--_radius-scale-6: 1.5rem;    /* 24px */
 }
-/* ===== PRIMITIVE — FONT SCALE =====
- * 타이포그래피 크기 계단.
- * 단위: rem (1rem = 16px 기본).
- * 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
+/* ===== PRIMITIVE — SCALE =====
+ * 길이 계단 (spacing + sizing 공유 primitive). 4px 그리드 기반.
+ * 단위: rem (1rem = 16px 기본). 루트 font-size 변경 시 비례 확대됨.
+ * 내부 저장소 — 외부에서 직접 쓰지 마세요. --space-*, --size-* semantic 토큰을 쓰세요.
  */
 
 :root {
-	--_font-scale-1: 0.75rem;    /* 12px */
-	--_font-scale-2: 0.875rem;   /* 14px */
-	--_font-scale-3: 1rem;       /* 16px */
-	--_font-scale-4: 1.125rem;   /* 18px */
-	--_font-scale-5: 1.25rem;    /* 20px */
-	--_font-scale-6: 1.5rem;     /* 24px */
-	--_font-scale-7: 2rem;       /* 32px */
-	--_font-scale-8: 3rem;       /* 48px */
+	--_scale-0: 0;
+	--_scale-1: 0.125rem;  /* 2px */
+	--_scale-2: 0.25rem;   /* 4px */
+	--_scale-3: 0.5rem;    /* 8px */
+	--_scale-4: 0.75rem;   /* 12px */
+	--_scale-5: 1rem;      /* 16px */
+	--_scale-6: 1.25rem;   /* 20px */
+	--_scale-7: 1.5rem;    /* 24px */
+	--_scale-8: 2rem;      /* 32px */
+	--_scale-9: 2.5rem;    /* 40px */
+	--_scale-10: 3rem;     /* 48px */
+	--_scale-11: 4rem;     /* 64px */
+	--_scale-12: 5rem;     /* 80px */
+	--_scale-13: 6rem;     /* 96px */
+	--_scale-14: 8rem;     /* 128px */
 }
 /* ===== PRIMITIVE — SHADOW ELEVATION =====
  * 그림자 단계 (elevation 기반).
@@ -149,6 +149,329 @@
 	--_shadow-elev-3: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.12);       /* y=4px, blur=8px */
 	--_shadow-elev-4: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);          /* y=8px, blur=16px */
 	--_shadow-elev-5: 0 1rem 2rem rgba(0, 0, 0, 0.2);             /* y=16px, blur=32px */
+}
+/* ===== SEMANTIC — BORDER WIDTH =====
+ * border-width는 값이 작고 고정적이라 primitive 층 생략.
+ * 단위: rem. 시스템 전체 일관 스케일링 정책에 따름.
+ * (1rem = 16px 기준. 사용자가 루트 font-size 변경 시 보더도 비례 확대됨.)
+ */
+
+:root {
+	--border-width-0: 0;
+	--border-width-1: 0.0625rem;  /* 1px */
+	--border-width-2: 0.125rem;   /* 2px */
+	--border-width-3: 0.25rem;    /* 4px */
+	--border-width-4: 0.5rem;     /* 8px */
+}
+/* ===== SEMANTIC — COLOR =====
+ * 역할 기반 색상 토큰. primitive --_hue-* 를 참조.
+ *
+ * 네이밍 규칙:
+ *   - Brand: primary / secondary / tertiary (업계 표준)
+ *   - Status: success / warning / danger
+ *   - Surface/Text/Border: 역할 기반
+ *   - 상호작용 변형: -hover, -active
+ *   - 옅은 버전: -subtle
+ *   - 전경색 (해당 색 위에 올리는 텍스트/아이콘): on- prefix (Material Design 관례)
+ *
+ * 다크모드 전략:
+ *   - :root 에 light 기본값
+ *   - @media (prefers-color-scheme: dark) 로 시스템 자동 대응
+ *   - [data-theme="dark|light"] 으로 수동 강제 가능
+ *
+ * 중요 원칙:
+ *   - primitive --_hue-* 는 다크모드에서도 불변 (고정 팔레트)
+ *   - semantic --color-* 만 재정의 (역할 ↔ 팔레트 매핑만 바뀜)
+ */
+
+:root {
+	/* ===== Brand — Primary ===== */
+	--color-primary: var(--_hue-green-500);
+	--color-primary-hover: var(--_hue-green-600);
+	--color-primary-active: var(--_hue-green-700);
+	--color-primary-subtle: var(--_hue-green-100);
+	--color-on-primary: #ffffff;
+
+	/* ===== Brand — Secondary ===== */
+	--color-secondary: var(--_hue-blue-500);
+	--color-secondary-hover: var(--_hue-blue-600);
+	--color-secondary-active: var(--_hue-blue-700);
+	--color-secondary-subtle: var(--_hue-blue-100);
+	--color-on-secondary: #ffffff;
+
+	/* ===== Brand — Tertiary (강조·CTA) ===== */
+	--color-tertiary: var(--_hue-amber-500);
+	--color-tertiary-hover: var(--_hue-amber-600);
+	--color-tertiary-active: var(--_hue-amber-700);
+	--color-tertiary-subtle: var(--_hue-amber-100);
+	--color-on-tertiary: var(--_hue-gray-900);
+
+	/* ===== Surface (배경) =====
+	 * 회색 베이스만 숫자 elevation 스케일.
+	 * 0(=surface, canvas) → 4(가장 떠있는 면). 다크모드에서는 높을수록 밝아짐.
+	 * inverse는 스케일 밖 — 라이트 컨텍스트의 다크 섬(반대도 동일).
+	 */
+	--color-surface: #ffffff;
+	--color-surface-1: var(--_hue-gray-50);
+	--color-surface-2: var(--_hue-gray-100);
+	--color-surface-3: var(--_hue-gray-200);
+	--color-surface-4: var(--_hue-gray-300);
+	--color-surface-inverse: var(--_hue-gray-900);
+	--color-on-surface: var(--_hue-gray-900);
+	--color-on-surface-inverse: #ffffff;
+
+	/* ===== Text ===== */
+	--color-text: var(--_hue-gray-900);
+	--color-text-muted: var(--_hue-gray-600);
+	--color-text-subtle: var(--_hue-gray-400);
+	--color-text-inverse: #ffffff;
+
+	/* ===== Border ===== */
+	--color-border: var(--_hue-gray-200);
+	--color-border-strong: var(--_hue-gray-400);
+	--color-border-subtle: var(--_hue-gray-100);
+
+	/* ===== Status — Success ===== */
+	--color-success: var(--_hue-emerald-500);
+	--color-success-hover: var(--_hue-emerald-600);
+	--color-success-active: var(--_hue-emerald-700);
+	--color-success-subtle: var(--_hue-emerald-100);
+	--color-on-success: #ffffff;
+
+	/* ===== Status — Warning ===== */
+	--color-warning: var(--_hue-amber-500);
+	--color-warning-hover: var(--_hue-amber-600);
+	--color-warning-active: var(--_hue-amber-700);
+	--color-warning-subtle: var(--_hue-amber-100);
+	--color-on-warning: var(--_hue-gray-900);
+
+	/* ===== Status — Danger ===== */
+	--color-danger: var(--_hue-red-500);
+	--color-danger-hover: var(--_hue-red-600);
+	--color-danger-active: var(--_hue-red-700);
+	--color-danger-subtle: var(--_hue-red-100);
+	--color-on-danger: #ffffff;
+
+	/* ===== Focus ring ===== */
+	--color-focus-ring: var(--_hue-blue-400);
+}
+
+/* ===== Dark — 시스템 자동 ===== */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: var(--_hue-green-400);
+		--color-primary-hover: var(--_hue-green-300);
+		--color-primary-active: var(--_hue-green-200);
+		--color-primary-subtle: var(--_hue-green-900);
+		--color-on-primary: var(--_hue-gray-950);
+
+		--color-secondary: var(--_hue-blue-400);
+		--color-secondary-hover: var(--_hue-blue-300);
+		--color-secondary-active: var(--_hue-blue-200);
+		--color-secondary-subtle: var(--_hue-blue-900);
+		--color-on-secondary: var(--_hue-gray-950);
+
+		--color-tertiary: var(--_hue-amber-400);
+		--color-tertiary-hover: var(--_hue-amber-300);
+		--color-tertiary-active: var(--_hue-amber-200);
+		--color-tertiary-subtle: var(--_hue-amber-900);
+		--color-on-tertiary: var(--_hue-gray-950);
+
+		--color-surface: var(--_hue-gray-950);
+		--color-surface-1: var(--_hue-gray-900);
+		--color-surface-2: var(--_hue-gray-800);
+		--color-surface-3: var(--_hue-gray-700);
+		--color-surface-4: var(--_hue-gray-600);
+		--color-surface-inverse: var(--_hue-gray-50);
+		--color-on-surface: var(--_hue-gray-100);
+		--color-on-surface-inverse: var(--_hue-gray-900);
+
+		--color-text: var(--_hue-gray-100);
+		--color-text-muted: var(--_hue-gray-400);
+		--color-text-subtle: var(--_hue-gray-600);
+		--color-text-inverse: var(--_hue-gray-900);
+
+		--color-border: var(--_hue-gray-800);
+		--color-border-strong: var(--_hue-gray-600);
+		--color-border-subtle: var(--_hue-gray-900);
+
+		--color-success: var(--_hue-emerald-400);
+		--color-success-hover: var(--_hue-emerald-300);
+		--color-success-active: var(--_hue-emerald-200);
+		--color-success-subtle: var(--_hue-emerald-900);
+		--color-on-success: var(--_hue-gray-950);
+
+		--color-warning: var(--_hue-amber-400);
+		--color-warning-hover: var(--_hue-amber-300);
+		--color-warning-active: var(--_hue-amber-200);
+		--color-warning-subtle: var(--_hue-amber-900);
+		--color-on-warning: var(--_hue-gray-950);
+
+		--color-danger: var(--_hue-red-400);
+		--color-danger-hover: var(--_hue-red-300);
+		--color-danger-active: var(--_hue-red-200);
+		--color-danger-subtle: var(--_hue-red-900);
+		--color-on-danger: var(--_hue-gray-950);
+
+		--color-focus-ring: var(--_hue-blue-300);
+	}
+}
+
+/* ===== Dark — 수동 강제 ===== */
+[data-theme="dark"] {
+	--color-primary: var(--_hue-green-400);
+	--color-primary-hover: var(--_hue-green-300);
+	--color-primary-active: var(--_hue-green-200);
+	--color-primary-subtle: var(--_hue-green-900);
+	--color-on-primary: var(--_hue-gray-950);
+
+	--color-secondary: var(--_hue-blue-400);
+	--color-secondary-hover: var(--_hue-blue-300);
+	--color-secondary-active: var(--_hue-blue-200);
+	--color-secondary-subtle: var(--_hue-blue-900);
+	--color-on-secondary: var(--_hue-gray-950);
+
+	--color-tertiary: var(--_hue-amber-400);
+	--color-tertiary-hover: var(--_hue-amber-300);
+	--color-tertiary-active: var(--_hue-amber-200);
+	--color-tertiary-subtle: var(--_hue-amber-900);
+	--color-on-tertiary: var(--_hue-gray-950);
+
+	--color-surface: var(--_hue-gray-950);
+	--color-surface-1: var(--_hue-gray-900);
+	--color-surface-2: var(--_hue-gray-800);
+	--color-surface-3: var(--_hue-gray-700);
+	--color-surface-4: var(--_hue-gray-600);
+	--color-surface-inverse: var(--_hue-gray-50);
+	--color-on-surface: var(--_hue-gray-100);
+	--color-on-surface-inverse: var(--_hue-gray-900);
+
+	--color-text: var(--_hue-gray-100);
+	--color-text-muted: var(--_hue-gray-400);
+	--color-text-subtle: var(--_hue-gray-600);
+	--color-text-inverse: var(--_hue-gray-900);
+
+	--color-border: var(--_hue-gray-800);
+	--color-border-strong: var(--_hue-gray-600);
+	--color-border-subtle: var(--_hue-gray-900);
+
+	--color-success: var(--_hue-emerald-400);
+	--color-success-hover: var(--_hue-emerald-300);
+	--color-success-active: var(--_hue-emerald-200);
+	--color-success-subtle: var(--_hue-emerald-900);
+	--color-on-success: var(--_hue-gray-950);
+
+	--color-warning: var(--_hue-amber-400);
+	--color-warning-hover: var(--_hue-amber-300);
+	--color-warning-active: var(--_hue-amber-200);
+	--color-warning-subtle: var(--_hue-amber-900);
+	--color-on-warning: var(--_hue-gray-950);
+
+	--color-danger: var(--_hue-red-400);
+	--color-danger-hover: var(--_hue-red-300);
+	--color-danger-active: var(--_hue-red-200);
+	--color-danger-subtle: var(--_hue-red-900);
+	--color-on-danger: var(--_hue-gray-950);
+
+	--color-focus-ring: var(--_hue-blue-300);
+}
+
+/* ===== Light — 수동 강제 ===== */
+[data-theme="light"] {
+	--color-primary: var(--_hue-green-500);
+	--color-primary-hover: var(--_hue-green-600);
+	--color-primary-active: var(--_hue-green-700);
+	--color-primary-subtle: var(--_hue-green-100);
+	--color-on-primary: #ffffff;
+
+	--color-secondary: var(--_hue-blue-500);
+	--color-secondary-hover: var(--_hue-blue-600);
+	--color-secondary-active: var(--_hue-blue-700);
+	--color-secondary-subtle: var(--_hue-blue-100);
+	--color-on-secondary: #ffffff;
+
+	--color-tertiary: var(--_hue-amber-500);
+	--color-tertiary-hover: var(--_hue-amber-600);
+	--color-tertiary-active: var(--_hue-amber-700);
+	--color-tertiary-subtle: var(--_hue-amber-100);
+	--color-on-tertiary: var(--_hue-gray-900);
+
+	--color-surface: #ffffff;
+	--color-surface-1: var(--_hue-gray-50);
+	--color-surface-2: var(--_hue-gray-100);
+	--color-surface-3: var(--_hue-gray-200);
+	--color-surface-4: var(--_hue-gray-300);
+	--color-surface-inverse: var(--_hue-gray-900);
+	--color-on-surface: var(--_hue-gray-900);
+	--color-on-surface-inverse: #ffffff;
+
+	--color-text: var(--_hue-gray-900);
+	--color-text-muted: var(--_hue-gray-600);
+	--color-text-subtle: var(--_hue-gray-400);
+	--color-text-inverse: #ffffff;
+
+	--color-border: var(--_hue-gray-200);
+	--color-border-strong: var(--_hue-gray-400);
+	--color-border-subtle: var(--_hue-gray-100);
+
+	--color-success: var(--_hue-emerald-500);
+	--color-success-hover: var(--_hue-emerald-600);
+	--color-success-active: var(--_hue-emerald-700);
+	--color-success-subtle: var(--_hue-emerald-100);
+	--color-on-success: #ffffff;
+
+	--color-warning: var(--_hue-amber-500);
+	--color-warning-hover: var(--_hue-amber-600);
+	--color-warning-active: var(--_hue-amber-700);
+	--color-warning-subtle: var(--_hue-amber-100);
+	--color-on-warning: var(--_hue-gray-900);
+
+	--color-danger: var(--_hue-red-500);
+	--color-danger-hover: var(--_hue-red-600);
+	--color-danger-active: var(--_hue-red-700);
+	--color-danger-subtle: var(--_hue-red-100);
+	--color-on-danger: #ffffff;
+
+	--color-focus-ring: var(--_hue-blue-400);
+}
+/* ===== SEMANTIC — OPACITY ===== */
+
+:root {
+	--opacity-0: 0;
+	--opacity-10: 0.1;
+	--opacity-20: 0.2;
+	--opacity-25: 0.25;
+	--opacity-30: 0.3;
+	--opacity-40: 0.4;
+	--opacity-50: 0.5;
+	--opacity-60: 0.6;
+	--opacity-70: 0.7;
+	--opacity-75: 0.75;
+	--opacity-80: 0.8;
+	--opacity-90: 0.9;
+	--opacity-100: 1;
+}
+/* ===== SEMANTIC — BORDER RADIUS ===== */
+
+:root {
+	--radius-0: var(--_radius-scale-0);
+	--radius-1: var(--_radius-scale-1);
+	--radius-2: var(--_radius-scale-2);
+	--radius-3: var(--_radius-scale-3);
+	--radius-4: var(--_radius-scale-4);
+	--radius-5: var(--_radius-scale-5);
+	--radius-6: var(--_radius-scale-6);
+	--radius-full: 9999px;
+}
+/* ===== SEMANTIC — SHADOW ===== */
+
+:root {
+	--shadow-sm: var(--_shadow-elev-1);
+	--shadow-md: var(--_shadow-elev-2);
+	--shadow-lg: var(--_shadow-elev-3);
+	--shadow-xl: var(--_shadow-elev-4);
+	--shadow-2xl: var(--_shadow-elev-5);
+	--shadow-none: none;
 }
 /* ===== SEMANTIC — SPACING & SIZING =====
  * Spacing (padding, margin, gap)과 Sizing (width, height)은
@@ -226,289 +549,19 @@
 	--size-half: 50%;
 	--size-auto: auto;
 }
-/* ===== SEMANTIC — COLOR =====
- * 역할 기반 색상 토큰. primitive --_hue-* 를 참조.
- *
- * 네이밍 규칙:
- *   - Brand: primary / secondary / tertiary (업계 표준)
- *   - Status: success / warning / danger
- *   - Surface/Text/Border: 역할 기반
- *   - 상호작용 변형: -hover, -active
- *   - 옅은 버전: -subtle
- *   - 전경색 (해당 색 위에 올리는 텍스트/아이콘): on- prefix (Material Design 관례)
- *
- * 다크모드 전략:
- *   - :root 에 light 기본값
- *   - @media (prefers-color-scheme: dark) 로 시스템 자동 대응
- *   - [data-theme="dark|light"] 으로 수동 강제 가능
- *
- * 중요 원칙:
- *   - primitive --_hue-* 는 다크모드에서도 불변 (고정 팔레트)
- *   - semantic --color-* 만 재정의 (역할 ↔ 팔레트 매핑만 바뀜)
- */
+/* ===== SEMANTIC — TRANSITION ===== */
 
 :root {
-	/* ===== Brand — Primary ===== */
-	--color-primary: var(--_hue-green-500);
-	--color-primary-hover: var(--_hue-green-600);
-	--color-primary-active: var(--_hue-green-700);
-	--color-primary-subtle: var(--_hue-green-100);
-	--color-on-primary: #ffffff;
+	/* Duration */
+	--duration-fast: 150ms;
+	--duration-normal: 250ms;
+	--duration-slow: 400ms;
 
-	/* ===== Brand — Secondary ===== */
-	--color-secondary: var(--_hue-blue-500);
-	--color-secondary-hover: var(--_hue-blue-600);
-	--color-secondary-active: var(--_hue-blue-700);
-	--color-secondary-subtle: var(--_hue-blue-100);
-	--color-on-secondary: #ffffff;
-
-	/* ===== Brand — Tertiary (강조·CTA) ===== */
-	--color-tertiary: var(--_hue-amber-500);
-	--color-tertiary-hover: var(--_hue-amber-600);
-	--color-tertiary-active: var(--_hue-amber-700);
-	--color-tertiary-subtle: var(--_hue-amber-100);
-	--color-on-tertiary: var(--_hue-gray-900);
-
-	/* ===== Surface (배경) ===== */
-	--color-surface: #ffffff;
-	--color-surface-subtle: var(--_hue-gray-50);
-	--color-surface-muted: var(--_hue-gray-100);
-	--color-surface-inverse: var(--_hue-gray-900);
-	--color-on-surface: var(--_hue-gray-900);
-	--color-on-surface-inverse: #ffffff;
-
-	/* ===== Text ===== */
-	--color-text: var(--_hue-gray-900);
-	--color-text-muted: var(--_hue-gray-600);
-	--color-text-subtle: var(--_hue-gray-400);
-	--color-text-inverse: #ffffff;
-
-	/* ===== Border ===== */
-	--color-border: var(--_hue-gray-200);
-	--color-border-strong: var(--_hue-gray-400);
-	--color-border-subtle: var(--_hue-gray-100);
-
-	/* ===== Status — Success ===== */
-	--color-success: var(--_hue-emerald-500);
-	--color-success-hover: var(--_hue-emerald-600);
-	--color-success-active: var(--_hue-emerald-700);
-	--color-success-subtle: var(--_hue-emerald-100);
-	--color-on-success: #ffffff;
-
-	/* ===== Status — Warning ===== */
-	--color-warning: var(--_hue-amber-500);
-	--color-warning-hover: var(--_hue-amber-600);
-	--color-warning-active: var(--_hue-amber-700);
-	--color-warning-subtle: var(--_hue-amber-100);
-	--color-on-warning: var(--_hue-gray-900);
-
-	/* ===== Status — Danger ===== */
-	--color-danger: var(--_hue-red-500);
-	--color-danger-hover: var(--_hue-red-600);
-	--color-danger-active: var(--_hue-red-700);
-	--color-danger-subtle: var(--_hue-red-100);
-	--color-on-danger: #ffffff;
-
-	/* ===== Focus ring ===== */
-	--color-focus-ring: var(--_hue-blue-400);
-}
-
-/* ===== Dark — 시스템 자동 ===== */
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-primary: var(--_hue-green-400);
-		--color-primary-hover: var(--_hue-green-300);
-		--color-primary-active: var(--_hue-green-200);
-		--color-primary-subtle: var(--_hue-green-900);
-		--color-on-primary: var(--_hue-gray-950);
-
-		--color-secondary: var(--_hue-blue-400);
-		--color-secondary-hover: var(--_hue-blue-300);
-		--color-secondary-active: var(--_hue-blue-200);
-		--color-secondary-subtle: var(--_hue-blue-900);
-		--color-on-secondary: var(--_hue-gray-950);
-
-		--color-tertiary: var(--_hue-amber-400);
-		--color-tertiary-hover: var(--_hue-amber-300);
-		--color-tertiary-active: var(--_hue-amber-200);
-		--color-tertiary-subtle: var(--_hue-amber-900);
-		--color-on-tertiary: var(--_hue-gray-950);
-
-		--color-surface: var(--_hue-gray-950);
-		--color-surface-subtle: var(--_hue-gray-900);
-		--color-surface-muted: var(--_hue-gray-800);
-		--color-surface-inverse: var(--_hue-gray-50);
-		--color-on-surface: var(--_hue-gray-100);
-		--color-on-surface-inverse: var(--_hue-gray-900);
-
-		--color-text: var(--_hue-gray-100);
-		--color-text-muted: var(--_hue-gray-400);
-		--color-text-subtle: var(--_hue-gray-600);
-		--color-text-inverse: var(--_hue-gray-900);
-
-		--color-border: var(--_hue-gray-800);
-		--color-border-strong: var(--_hue-gray-600);
-		--color-border-subtle: var(--_hue-gray-900);
-
-		--color-success: var(--_hue-emerald-400);
-		--color-success-hover: var(--_hue-emerald-300);
-		--color-success-active: var(--_hue-emerald-200);
-		--color-success-subtle: var(--_hue-emerald-900);
-		--color-on-success: var(--_hue-gray-950);
-
-		--color-warning: var(--_hue-amber-400);
-		--color-warning-hover: var(--_hue-amber-300);
-		--color-warning-active: var(--_hue-amber-200);
-		--color-warning-subtle: var(--_hue-amber-900);
-		--color-on-warning: var(--_hue-gray-950);
-
-		--color-danger: var(--_hue-red-400);
-		--color-danger-hover: var(--_hue-red-300);
-		--color-danger-active: var(--_hue-red-200);
-		--color-danger-subtle: var(--_hue-red-900);
-		--color-on-danger: var(--_hue-gray-950);
-
-		--color-focus-ring: var(--_hue-blue-300);
-	}
-}
-
-/* ===== Dark — 수동 강제 ===== */
-[data-theme="dark"] {
-	--color-primary: var(--_hue-green-400);
-	--color-primary-hover: var(--_hue-green-300);
-	--color-primary-active: var(--_hue-green-200);
-	--color-primary-subtle: var(--_hue-green-900);
-	--color-on-primary: var(--_hue-gray-950);
-
-	--color-secondary: var(--_hue-blue-400);
-	--color-secondary-hover: var(--_hue-blue-300);
-	--color-secondary-active: var(--_hue-blue-200);
-	--color-secondary-subtle: var(--_hue-blue-900);
-	--color-on-secondary: var(--_hue-gray-950);
-
-	--color-tertiary: var(--_hue-amber-400);
-	--color-tertiary-hover: var(--_hue-amber-300);
-	--color-tertiary-active: var(--_hue-amber-200);
-	--color-tertiary-subtle: var(--_hue-amber-900);
-	--color-on-tertiary: var(--_hue-gray-950);
-
-	--color-surface: var(--_hue-gray-950);
-	--color-surface-subtle: var(--_hue-gray-900);
-	--color-surface-muted: var(--_hue-gray-800);
-	--color-surface-inverse: var(--_hue-gray-50);
-	--color-on-surface: var(--_hue-gray-100);
-	--color-on-surface-inverse: var(--_hue-gray-900);
-
-	--color-text: var(--_hue-gray-100);
-	--color-text-muted: var(--_hue-gray-400);
-	--color-text-subtle: var(--_hue-gray-600);
-	--color-text-inverse: var(--_hue-gray-900);
-
-	--color-border: var(--_hue-gray-800);
-	--color-border-strong: var(--_hue-gray-600);
-	--color-border-subtle: var(--_hue-gray-900);
-
-	--color-success: var(--_hue-emerald-400);
-	--color-success-hover: var(--_hue-emerald-300);
-	--color-success-active: var(--_hue-emerald-200);
-	--color-success-subtle: var(--_hue-emerald-900);
-	--color-on-success: var(--_hue-gray-950);
-
-	--color-warning: var(--_hue-amber-400);
-	--color-warning-hover: var(--_hue-amber-300);
-	--color-warning-active: var(--_hue-amber-200);
-	--color-warning-subtle: var(--_hue-amber-900);
-	--color-on-warning: var(--_hue-gray-950);
-
-	--color-danger: var(--_hue-red-400);
-	--color-danger-hover: var(--_hue-red-300);
-	--color-danger-active: var(--_hue-red-200);
-	--color-danger-subtle: var(--_hue-red-900);
-	--color-on-danger: var(--_hue-gray-950);
-
-	--color-focus-ring: var(--_hue-blue-300);
-}
-
-/* ===== Light — 수동 강제 ===== */
-[data-theme="light"] {
-	--color-primary: var(--_hue-green-500);
-	--color-primary-hover: var(--_hue-green-600);
-	--color-primary-active: var(--_hue-green-700);
-	--color-primary-subtle: var(--_hue-green-100);
-	--color-on-primary: #ffffff;
-
-	--color-secondary: var(--_hue-blue-500);
-	--color-secondary-hover: var(--_hue-blue-600);
-	--color-secondary-active: var(--_hue-blue-700);
-	--color-secondary-subtle: var(--_hue-blue-100);
-	--color-on-secondary: #ffffff;
-
-	--color-tertiary: var(--_hue-amber-500);
-	--color-tertiary-hover: var(--_hue-amber-600);
-	--color-tertiary-active: var(--_hue-amber-700);
-	--color-tertiary-subtle: var(--_hue-amber-100);
-	--color-on-tertiary: var(--_hue-gray-900);
-
-	--color-surface: #ffffff;
-	--color-surface-subtle: var(--_hue-gray-50);
-	--color-surface-muted: var(--_hue-gray-100);
-	--color-surface-inverse: var(--_hue-gray-900);
-	--color-on-surface: var(--_hue-gray-900);
-	--color-on-surface-inverse: #ffffff;
-
-	--color-text: var(--_hue-gray-900);
-	--color-text-muted: var(--_hue-gray-600);
-	--color-text-subtle: var(--_hue-gray-400);
-	--color-text-inverse: #ffffff;
-
-	--color-border: var(--_hue-gray-200);
-	--color-border-strong: var(--_hue-gray-400);
-	--color-border-subtle: var(--_hue-gray-100);
-
-	--color-success: var(--_hue-emerald-500);
-	--color-success-hover: var(--_hue-emerald-600);
-	--color-success-active: var(--_hue-emerald-700);
-	--color-success-subtle: var(--_hue-emerald-100);
-	--color-on-success: #ffffff;
-
-	--color-warning: var(--_hue-amber-500);
-	--color-warning-hover: var(--_hue-amber-600);
-	--color-warning-active: var(--_hue-amber-700);
-	--color-warning-subtle: var(--_hue-amber-100);
-	--color-on-warning: var(--_hue-gray-900);
-
-	--color-danger: var(--_hue-red-500);
-	--color-danger-hover: var(--_hue-red-600);
-	--color-danger-active: var(--_hue-red-700);
-	--color-danger-subtle: var(--_hue-red-100);
-	--color-on-danger: #ffffff;
-
-	--color-focus-ring: var(--_hue-blue-400);
-}
-/* ===== SEMANTIC — BORDER RADIUS ===== */
-
-:root {
-	--radius-0: var(--_radius-scale-0);
-	--radius-1: var(--_radius-scale-1);
-	--radius-2: var(--_radius-scale-2);
-	--radius-3: var(--_radius-scale-3);
-	--radius-4: var(--_radius-scale-4);
-	--radius-5: var(--_radius-scale-5);
-	--radius-6: var(--_radius-scale-6);
-	--radius-full: 9999px;
-}
-/* ===== SEMANTIC — BORDER WIDTH =====
- * border-width는 값이 작고 고정적이라 primitive 층 생략.
- * 단위: rem. 시스템 전체 일관 스케일링 정책에 따름.
- * (1rem = 16px 기준. 사용자가 루트 font-size 변경 시 보더도 비례 확대됨.)
- */
-
-:root {
-	--border-width-0: 0;
-	--border-width-1: 0.0625rem;  /* 1px */
-	--border-width-2: 0.125rem;   /* 2px */
-	--border-width-3: 0.25rem;    /* 4px */
-	--border-width-4: 0.5rem;     /* 8px */
+	/* Easing */
+	--ease-linear: linear;
+	--ease-in: cubic-bezier(0.4, 0, 1, 1);
+	--ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* ===== SEMANTIC — TYPOGRAPHY ===== */
 
@@ -562,45 +615,4 @@
 	--z-popover: 500;
 	--z-toast: 600;
 	--z-tooltip: 700;
-}
-/* ===== SEMANTIC — OPACITY ===== */
-
-:root {
-	--opacity-0: 0;
-	--opacity-10: 0.1;
-	--opacity-20: 0.2;
-	--opacity-25: 0.25;
-	--opacity-30: 0.3;
-	--opacity-40: 0.4;
-	--opacity-50: 0.5;
-	--opacity-60: 0.6;
-	--opacity-70: 0.7;
-	--opacity-75: 0.75;
-	--opacity-80: 0.8;
-	--opacity-90: 0.9;
-	--opacity-100: 1;
-}
-/* ===== SEMANTIC — SHADOW ===== */
-
-:root {
-	--shadow-sm: var(--_shadow-elev-1);
-	--shadow-md: var(--_shadow-elev-2);
-	--shadow-lg: var(--_shadow-elev-3);
-	--shadow-xl: var(--_shadow-elev-4);
-	--shadow-2xl: var(--_shadow-elev-5);
-	--shadow-none: none;
-}
-/* ===== SEMANTIC — TRANSITION ===== */
-
-:root {
-	/* Duration */
-	--duration-fast: 150ms;
-	--duration-normal: 250ms;
-	--duration-slow: 400ms;
-
-	/* Easing */
-	--ease-linear: linear;
-	--ease-in: cubic-bezier(0.4, 0, 1, 1);
-	--ease-out: cubic-bezier(0, 0, 0.2, 1);
-	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
