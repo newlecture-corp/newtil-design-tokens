@@ -1,6 +1,6 @@
 {
 	"name": "@newtil/design-tokens",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Shared CSS design tokens (variables) for the newtil ecosystem — colors, spacing, sizes, shadows, typography",
 	"publishConfig": {
 		"access": "public"
@@ -37,12 +37,19 @@
 		"build": "node scripts/build.mjs",
 		"check": "node scripts/check.mjs",
 		"test": "npm run check",
-		"prepublishOnly": "npm run build && npm run check"
+		"prepublishOnly": "npm run build && npm run check",
+		"docs:tokens": "node scripts/docs-tokens.mjs",
+		"docs:dev": "npm run docs:tokens && vitepress dev docs --host",
+		"docs:build": "npm run docs:tokens && vitepress build docs",
+		"docs:preview": "vitepress preview docs"
 	},
 	"files": [
 		"css",
 		"dist",
 		"README.md",
 		"LICENSE"
-	]
+	],
+	"devDependencies": {
+		"vitepress": "^1.6.4"
+	}
 }
