@@ -1,0 +1,74 @@
+/* ===== DEPRECATED — 0.2.1 에서 제거된 이름의 별칭 =====
+ * 다음 minor 에서 삭제한다. 새 이름으로 옮기세요.
+ * 이 파일의 토큰은 check 의 parity·hex 검사 대상이 아니다.
+ * `[data-theme]` 를 루트 외 요소에 붙여 부분 테마를 만든 경우에도 별칭이 그 요소의 값을 따르도록
+ * 셀렉터에 [data-theme] 를 포함한다.
+ */
+
+:root,
+[data-theme="light"],
+[data-theme="dark"] {
+	/* 표면 위 글자 → --color-text-* */
+	--color-on-surface: var(--color-text);
+	--color-on-surface-inverse: var(--color-text-inverse);
+
+	/* --size-N → --space-N (같은 값) */
+	--size-0: var(--space-0);
+	--size-1: var(--space-1);
+	--size-2: var(--space-2);
+	--size-3: var(--space-3);
+	--size-4: var(--space-4);
+	--size-5: var(--space-5);
+	--size-6: var(--space-6);
+	--size-7: var(--space-7);
+	--size-8: var(--space-8);
+	--size-9: var(--space-9);
+	--size-10: var(--space-10);
+	--size-11: var(--space-11);
+	--size-12: var(--space-12);
+	--size-13: var(--space-13);
+	--size-14: var(--space-14);
+
+	/* 분수·뷰포트·키워드 — 토큰이 아니라 CSS 값. @newtil/css 생성기 리터럴로 이동 */
+	--size-1-2: 50%;
+	--size-1-3: 33.333333%;
+	--size-2-3: 66.666667%;
+	--size-1-4: 25%;
+	--size-3-4: 75%;
+	--size-1-5: 20%;
+	--size-2-5: 40%;
+	--size-3-5: 60%;
+	--size-4-5: 80%;
+	--size-1-6: 16.666667%;
+	--size-5-6: 83.333333%;
+	--size-1-12: 8.333333%;
+	--size-5-12: 41.666667%;
+	--size-7-12: 58.333333%;
+	--size-11-12: 91.666667%;
+	--size-screen-w-25: 25vw;
+	--size-screen-w-50: 50vw;
+	--size-screen-w-75: 75vw;
+	--size-screen-w: 100vw;
+	--size-screen-h-25: 25vh;
+	--size-screen-h-50: 50vh;
+	--size-screen-h-75: 75vh;
+	--size-screen-h: 100vh;
+	--size-full: 100%;
+	--size-half: 50%;
+	--size-auto: auto;
+
+	/* font-size 티셔츠명 → 역할명 */
+	--font-size-xs: var(--font-size-caption);
+	--font-size-sm: var(--font-size-body-sm);
+	--font-size-md: var(--font-size-body);
+	--font-size-lg: var(--font-size-body-lg);
+	--font-size-xl: var(--font-size-heading-sm);
+	--font-size-2xl: var(--font-size-heading-md);
+	--font-size-3xl: var(--font-size-heading-lg);
+	--font-size-4xl: var(--font-size-display);
+
+	/* CSS 값 */
+	--shadow-none: none;
+	--opacity-25: 0.25;
+	--opacity-75: 0.75;
+}

@@ -1,11 +1,15 @@
-/* ===== @newtil/design-tokens — ENTRY POINT =====
+/* ===== @newtil/design-tokens — ENTRY POINT (소스) =====
  * 2-레이어 토큰 시스템:
  *   Primitive (--_*)  — raw 값의 저장소. 내부용.
  *   Semantic          — 역할 기반. 컴포넌트/사용자가 쓰는 토큰.
+ *   Deprecated        — 제거된 이름의 별칭. 다음 minor 에서 삭제.
+ *
+ * 이 파일은 소스 @import 묶음이다. `[data-theme="dark"]` 수동 강제 사본은 빌드가 만들어 dist/tokens.css 에만 들어가므로
+ * 수동 테마 전환이 필요하면 dist/tokens.css(패키지 기본 export)를 쓰세요.
  *
  * 커스터마이징:
- *   :root { --color-main: #ff6b00; }  ← semantic 오버라이드 권장
- *   :root { --_hue-green-500: #...; } ← primitive 오버라이드 (고급)
+ *   :root { --_hue-green-500: #...; }              ← 브랜드색 교체 (두 테마 동시 반영)
+ *   :root, [data-theme="light"] { --color-primary: … }  +  다크 셀렉터 한 벌 더  ← semantic 직접 변경
  */
 
 /* ===== PRIMITIVE LAYER ===== */
@@ -25,3 +29,6 @@
 @import "./semantic/opacity.css";
 @import "./semantic/shadow.css";
 @import "./semantic/transition.css";
+
+/* ===== DEPRECATED ALIASES ===== */
+@import "./deprecated.css";

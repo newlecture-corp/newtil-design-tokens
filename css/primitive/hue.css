@@ -82,4 +82,20 @@
 	--_hue-emerald-800: #065f46;
 	--_hue-emerald-900: #064e3b;
 	--_hue-emerald-950: #022c22;
+
+	/* White — 표면·반전 글자의 기준점. semantic 에서 hex 를 직접 쓰지 않기 위한 primitive (0.2.1) */
+	--_hue-white: #ffffff;
+
+	/* Sky — info (0.2.1 추가; blue 는 secondary·link·focus 가 쓰므로 info 는 별도 hue) */
+	--_hue-sky-50: #f0f9ff;
+	--_hue-sky-100: #e0f2fe;
+	--_hue-sky-200: #bae6fd;
+	--_hue-sky-300: #7dd3fc;
+	--_hue-sky-400: #38bdf8;
+	--_hue-sky-500: #0ea5e9;
+	--_hue-sky-600: #0284c7;
+	--_hue-sky-700: #0369a1;
+	--_hue-sky-800: #075985;
+	--_hue-sky-900: #0c4a6e;
+	--_hue-sky-950: #082f49;
 }

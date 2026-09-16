@@ -1,25 +1,24 @@
-/* ===== SEMANTIC — TYPOGRAPHY ===== */
+/* ===== SEMANTIC — TYPOGRAPHY =====
+ * 0.2.1: 글꼴 크기는 역할명 한 벌만 남겼다. 티셔츠명(xs…4xl)은 같은 값의 두 번째 이름이라 별칭으로 내려감(deprecated.css).
+ *        heading-xl(40px) 추가 — heading-lg(32) 와 display(48) 사이가 비어 페이지 제목 크기를 고를 수 없었다.
+ *        font-family 추가 — 시스템 스택. 호스트가 덮어쓴다.
+ */
 
 :root {
-	/* Font size — 역할 기반 (텍스트 콘텐츠용) */
-	--font-size-caption: var(--_font-scale-1);   /* 12px */
-	--font-size-body-sm: var(--_font-scale-2);   /* 14px */
-	--font-size-body: var(--_font-scale-3);      /* 16px */
-	--font-size-body-lg: var(--_font-scale-4);   /* 18px */
-	--font-size-heading-sm: var(--_font-scale-5); /* 20px */
-	--font-size-heading-md: var(--_font-scale-6); /* 24px */
-	--font-size-heading-lg: var(--_font-scale-7); /* 32px */
-	--font-size-display: var(--_font-scale-8);   /* 48px */
+	/* Font size — 역할 기반 */
+	--font-size-caption: var(--_font-scale-1);     /* 12px */
+	--font-size-body-sm: var(--_font-scale-2);     /* 14px */
+	--font-size-body: var(--_font-scale-3);        /* 16px */
+	--font-size-body-lg: var(--_font-scale-4);     /* 18px */
+	--font-size-heading-sm: var(--_font-scale-5);  /* 20px */
+	--font-size-heading-md: var(--_font-scale-6);  /* 24px */
+	--font-size-heading-lg: var(--_font-scale-7);  /* 32px */
+	--font-size-heading-xl: var(--_font-scale-8);  /* 40px */
+	--font-size-display: var(--_font-scale-9);     /* 48px */
 
-	/* Font size — 스케일 별칭 (컴포넌트·UI 요소용, 역할 구분 불필요할 때) */
-	--font-size-xs: var(--_font-scale-1);   /* 12px */
-	--font-size-sm: var(--_font-scale-2);   /* 14px */
-	--font-size-md: var(--_font-scale-3);   /* 16px (기본) */
-	--font-size-lg: var(--_font-scale-4);   /* 18px */
-	--font-size-xl: var(--_font-scale-5);   /* 20px */
-	--font-size-2xl: var(--_font-scale-6);  /* 24px */
-	--font-size-3xl: var(--_font-scale-7);  /* 32px */
-	--font-size-4xl: var(--_font-scale-8);  /* 48px */
+	/* Font family */
+	--font-family-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+	--font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
 	/* Font weight */
 	--font-weight-regular: 400;

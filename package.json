@@ -1,6 +1,6 @@
 {
 	"name": "@newtil/design-tokens",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Shared CSS design tokens (variables) for the newtil ecosystem — colors, spacing, sizes, shadows, typography",
 	"publishConfig": {
 		"access": "public"
@@ -14,7 +14,8 @@
 		"./index.css": "./css/index.css",
 		"./primitive/*": "./css/primitive/*",
 		"./semantic/*": "./css/semantic/*",
-		"./package.json": "./package.json"
+		"./package.json": "./package.json",
+		"./deprecated.css": "./css/deprecated.css"
 	},
 	"keywords": [
 		"css",
@@ -33,7 +34,10 @@
 	},
 	"homepage": "https://github.com/newlecture-corp/newtil-design-tokens#readme",
 	"scripts": {
-		"build": "cat css/primitive/*.css css/semantic/*.css > dist/tokens.css"
+		"build": "node scripts/build.mjs",
+		"check": "node scripts/check.mjs",
+		"test": "npm run check",
+		"prepublishOnly": "npm run build && npm run check"
 	},
 	"files": [
 		"css",

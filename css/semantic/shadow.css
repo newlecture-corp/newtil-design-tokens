@@ -1,4 +1,7 @@
-/* ===== SEMANTIC — SHADOW ===== */
+/* ===== SEMANTIC — SHADOW =====
+ * elevation 5단계. 이름이 티셔츠(sm…2xl)인 유일한 축 — 숫자 통일은 이름 변경이라 보류.
+ * 0.2.1: --shadow-none 은 CSS 값이라 토큰에서 뺐다(deprecated.css 별칭).
+ */
 
 :root {
 	--shadow-sm: var(--_shadow-elev-1);
@@ -6,5 +9,4 @@
 	--shadow-lg: var(--_shadow-elev-3);
 	--shadow-xl: var(--_shadow-elev-4);
 	--shadow-2xl: var(--_shadow-elev-5);
-	--shadow-none: none;
 }

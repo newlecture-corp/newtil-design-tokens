@@ -1,7 +1,7 @@
 /* ===== PRIMITIVE — FONT SCALE =====
- * 타이포그래피 크기 계단.
+ * 타이포그래피 크기 계단. 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
  * 단위: rem (1rem = 16px 기본).
- * 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
+ * 0.2.1: 32px 와 48px 사이가 비어 40px(8) 를 넣고 48px 는 9 로 밀었다. primitive 는 내부 번호라 이름 변경이 아니다.
  */
 
 :root {
@@ -12,5 +12,6 @@
 	--_font-scale-5: 1.25rem;    /* 20px */
 	--_font-scale-6: 1.5rem;     /* 24px */
 	--_font-scale-7: 2rem;       /* 32px */
-	--_font-scale-8: 3rem;       /* 48px */
+	--_font-scale-8: 2.5rem;     /* 40px */
+	--_font-scale-9: 3rem;       /* 48px */
 }

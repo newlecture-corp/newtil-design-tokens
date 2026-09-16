@@ -1,7 +1,10 @@
+/* @newtil/design-tokens — scripts/build.mjs 가 생성. 직접 수정하지 마세요. 소스는 css/ */
+
+/* ---------- css/primitive/font-scale.css ---------- */
 /* ===== PRIMITIVE — FONT SCALE =====
- * 타이포그래피 크기 계단.
+ * 타이포그래피 크기 계단. 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
  * 단위: rem (1rem = 16px 기본).
- * 내부 저장소 — --font-size-* semantic 토큰을 쓰세요.
+ * 0.2.1: 32px 와 48px 사이가 비어 40px(8) 를 넣고 48px 는 9 로 밀었다. primitive 는 내부 번호라 이름 변경이 아니다.
  */
 
 :root {
@@ -12,8 +15,11 @@
 	--_font-scale-5: 1.25rem;    /* 20px */
 	--_font-scale-6: 1.5rem;     /* 24px */
 	--_font-scale-7: 2rem;       /* 32px */
-	--_font-scale-8: 3rem;       /* 48px */
+	--_font-scale-8: 2.5rem;     /* 40px */
+	--_font-scale-9: 3rem;       /* 48px */
 }
+
+/* ---------- css/primitive/hue.css ---------- */
 /* ===== PRIMITIVE — HUE =====
  * 색상 팔레트. Hue × Shade 매트릭스.
  * 내부 저장소 — 외부에서 직접 쓰지 마세요. --color-* semantic 토큰을 쓰세요.
@@ -98,7 +104,25 @@
 	--_hue-emerald-800: #065f46;
 	--_hue-emerald-900: #064e3b;
 	--_hue-emerald-950: #022c22;
+
+	/* White — 표면·반전 글자의 기준점. semantic 에서 hex 를 직접 쓰지 않기 위한 primitive (0.2.1) */
+	--_hue-white: #ffffff;
+
+	/* Sky — info (0.2.1 추가; blue 는 secondary·link·focus 가 쓰므로 info 는 별도 hue) */
+	--_hue-sky-50: #f0f9ff;
+	--_hue-sky-100: #e0f2fe;
+	--_hue-sky-200: #bae6fd;
+	--_hue-sky-300: #7dd3fc;
+	--_hue-sky-400: #38bdf8;
+	--_hue-sky-500: #0ea5e9;
+	--_hue-sky-600: #0284c7;
+	--_hue-sky-700: #0369a1;
+	--_hue-sky-800: #075985;
+	--_hue-sky-900: #0c4a6e;
+	--_hue-sky-950: #082f49;
 }
+
+/* ---------- css/primitive/radius-scale.css ---------- */
 /* ===== PRIMITIVE — RADIUS SCALE =====
  * border-radius용 독립 계단. spacing과 값이 겹치지만 스케일 특성이 달라 분리.
  * 단위: rem (1rem = 16px 기본). 비례 스케일링.
@@ -114,6 +138,8 @@
 	--_radius-scale-5: 1rem;      /* 16px */
 	--_radius-scale-6: 1.5rem;    /* 24px */
 }
+
+/* ---------- css/primitive/scale.css ---------- */
 /* ===== PRIMITIVE — SCALE =====
  * 길이 계단 (spacing + sizing 공유 primitive). 4px 그리드 기반.
  * 단위: rem (1rem = 16px 기본). 루트 font-size 변경 시 비례 확대됨.
@@ -137,6 +163,8 @@
 	--_scale-13: 6rem;     /* 96px */
 	--_scale-14: 8rem;     /* 128px */
 }
+
+/* ---------- css/primitive/shadow-elev.css ---------- */
 /* ===== PRIMITIVE — SHADOW ELEVATION =====
  * 그림자 단계 (elevation 기반).
  * 단위: rem (offset/blur). 비례 깊이감 — 큰 요소엔 큰 그림자가 자연스러움.
@@ -150,6 +178,8 @@
 	--_shadow-elev-4: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);          /* y=8px, blur=16px */
 	--_shadow-elev-5: 0 1rem 2rem rgba(0, 0, 0, 0.2);             /* y=16px, blur=32px */
 }
+
+/* ---------- css/semantic/border.css ---------- */
 /* ===== SEMANTIC — BORDER WIDTH =====
  * border-width는 값이 작고 고정적이라 primitive 층 생략.
  * 단위: rem. 시스템 전체 일관 스케일링 정책에 따름.
@@ -163,43 +193,56 @@
 	--border-width-3: 0.25rem;    /* 4px */
 	--border-width-4: 0.5rem;     /* 8px */
 }
+
+/* ---------- css/semantic/color.css ---------- */
 /* ===== SEMANTIC — COLOR =====
- * 역할 기반 색상 토큰. primitive --_hue-* 를 참조.
+ * 역할 기반 색상 토큰. primitive --_hue-* 만 참조한다 (hex 직접 사용 금지 — scripts/check.mjs 가 막는다).
  *
  * 네이밍 규칙:
- *   - Brand: primary / secondary / tertiary (업계 표준)
- *   - Status: success / warning / danger
- *   - Surface/Text/Border: 역할 기반
- *   - 상호작용 변형: -hover, -active
- *   - 옅은 버전: -subtle
- *   - 전경색 (해당 색 위에 올리는 텍스트/아이콘): on- prefix (Material Design 관례)
+ *   - Brand: primary / secondary / tertiary
+ *   - Status: success / warning / danger / info
+ *   - Surface / Text / Border / Link / Code: 역할 기반
+ *   - 상호작용 변형: -hover, -active     옅은 버전: -subtle     비활성: -disabled
+ *   - 유채색 역할 위에 올리는 글자·아이콘: on- 접두사 (on-primary …)
+ *     표면 위 글자는 --color-text-* 다. (0.2.1: --color-on-surface 는 text 의 별칭으로 내려감 → deprecated.css)
  *
- * 다크모드 전략:
- *   - :root 에 light 기본값
- *   - @media (prefers-color-scheme: dark) 로 시스템 자동 대응
- *   - [data-theme="dark|light"] 으로 수동 강제 가능
+ * 다크모드 구조 (0.2.1):
+ *   - 라이트 한 벌: `:root, [data-theme="light"]`
+ *   - 다크 한 벌:   `@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { … } }`
+ *   - 수동 강제용 `[data-theme="dark"]` 사본은 scripts/build.mjs 가 다크 한 벌에서 생성해 dist/tokens.css 에만 넣는다.
+ *     이 소스 파일을 직접 import 하면 OS 다크만 동작한다.
+ *   - 라이트·다크 이름 parity 는 scripts/check.mjs 가 강제한다.
  *
- * 중요 원칙:
- *   - primitive --_hue-* 는 다크모드에서도 불변 (고정 팔레트)
- *   - semantic --color-* 만 재정의 (역할 ↔ 팔레트 매핑만 바뀜)
+ * 오버라이드:
+ *   - 브랜드색 교체는 primitive 램프(--_hue-green-*)를 바꾼다. 두 테마가 같이 따라온다.
+ *   - semantic 을 직접 바꿀 땐 라이트·다크 셀렉터를 둘 다 써야 한다.
+ *     `:root { --color-primary: … }` 하나는 다크 블록(특이성 0,2,0)에 진다.
+ *
+ * 대비(WCAG): on-X 대 X ≥ 3.0(큰 글자 AA), text·text-muted 대 surface~surface-2 ≥ 4.5, text-subtle ≥ 3.0.
+ * scripts/check.mjs 가 계산해 미달이면 실패한다.
  */
 
-:root {
+:root,
+[data-theme="light"] {
+	color-scheme: light;
+
 	/* ===== Brand — Primary ===== */
 	--color-primary: var(--_hue-green-500);
 	--color-primary-hover: var(--_hue-green-600);
 	--color-primary-active: var(--_hue-green-700);
 	--color-primary-subtle: var(--_hue-green-100);
-	--color-on-primary: #ffffff;
+	--color-on-primary: var(--_hue-gray-950);   /* 0.2.1: 흰색(대비 2.29) → 검정(8.5) */
 
 	/* ===== Brand — Secondary ===== */
 	--color-secondary: var(--_hue-blue-500);
 	--color-secondary-hover: var(--_hue-blue-600);
 	--color-secondary-active: var(--_hue-blue-700);
 	--color-secondary-subtle: var(--_hue-blue-100);
-	--color-on-secondary: #ffffff;
+	--color-on-secondary: var(--_hue-white);     /* 대비 3.68 — 큰 글자 AA. 본문 AA 가 필요하면 secondary 를 600 으로 */
 
-	/* ===== Brand — Tertiary (강조·CTA) ===== */
+	/* ===== Brand — Tertiary =====
+	 * 값 미정. 현재 warning(amber) 과 완전히 같다. 독자 hue 를 배정하기 전까지 warning 대용으로 쓰지 말 것.
+	 */
 	--color-tertiary: var(--_hue-amber-500);
 	--color-tertiary-hover: var(--_hue-amber-600);
 	--color-tertiary-active: var(--_hue-amber-700);
@@ -207,36 +250,50 @@
 	--color-on-tertiary: var(--_hue-gray-900);
 
 	/* ===== Surface (배경) =====
-	 * 회색 베이스만 숫자 elevation 스케일.
-	 * 0(=surface, canvas) → 4(가장 떠있는 면). 다크모드에서는 높을수록 밝아짐.
-	 * inverse는 스케일 밖 — 라이트 컨텍스트의 다크 섬(반대도 동일).
+	 * 회색 베이스만 숫자 elevation 스케일. 0(=surface, canvas) → 4(가장 떠있는 면). 다크에서는 높을수록 밝아짐.
+	 * inverse 는 스케일 밖 — 라이트 컨텍스트의 다크 섬(반대도 동일).
+	 * hover/active 는 표면 위 상호작용 상태(목록 행, 메뉴 항목). disabled 는 비활성 컨트롤 바탕.
 	 */
-	--color-surface: #ffffff;
+	--color-surface: var(--_hue-white);
 	--color-surface-1: var(--_hue-gray-50);
 	--color-surface-2: var(--_hue-gray-100);
 	--color-surface-3: var(--_hue-gray-200);
 	--color-surface-4: var(--_hue-gray-300);
 	--color-surface-inverse: var(--_hue-gray-900);
-	--color-on-surface: var(--_hue-gray-900);
-	--color-on-surface-inverse: #ffffff;
+	--color-surface-hover: var(--_hue-gray-100);
+	--color-surface-active: var(--_hue-gray-200);
+	--color-surface-disabled: var(--_hue-gray-100);
 
-	/* ===== Text ===== */
+	/* ===== Text (표면 위 글자) ===== */
 	--color-text: var(--_hue-gray-900);
 	--color-text-muted: var(--_hue-gray-600);
-	--color-text-subtle: var(--_hue-gray-400);
-	--color-text-inverse: #ffffff;
+	--color-text-subtle: var(--_hue-gray-500);   /* 0.2.1: 400(대비 2.52) → 500(4.75) */
+	--color-text-inverse: var(--_hue-white);
+	--color-text-disabled: var(--_hue-gray-400);
+
+	/* ===== Link ===== */
+	--color-link: var(--_hue-blue-600);          /* blue-500 은 흰 바탕 대비 3.68 로 본문 AA 미달 */
+	--color-link-hover: var(--_hue-blue-700);
 
 	/* ===== Border ===== */
 	--color-border: var(--_hue-gray-200);
 	--color-border-strong: var(--_hue-gray-400);
 	--color-border-subtle: var(--_hue-gray-100);
 
+	/* ===== Code (코드 상자 — 두 테마 모두 어두운 상자) ===== */
+	--color-code-bg: var(--_hue-gray-900);
+	--color-code-fg: var(--_hue-gray-100);
+	--color-code-border: var(--_hue-gray-800);
+
+	/* ===== Scrim (모달·시트 뒤 가림막) ===== */
+	--color-scrim: color-mix(in srgb, var(--_hue-gray-950) 32%, transparent);
+
 	/* ===== Status — Success ===== */
 	--color-success: var(--_hue-emerald-500);
 	--color-success-hover: var(--_hue-emerald-600);
 	--color-success-active: var(--_hue-emerald-700);
 	--color-success-subtle: var(--_hue-emerald-100);
-	--color-on-success: #ffffff;
+	--color-on-success: var(--_hue-gray-950);   /* 0.2.1: 흰색(대비 2.54) → 검정(7.8) */
 
 	/* ===== Status — Warning ===== */
 	--color-warning: var(--_hue-amber-500);
@@ -250,15 +307,24 @@
 	--color-danger-hover: var(--_hue-red-600);
 	--color-danger-active: var(--_hue-red-700);
 	--color-danger-subtle: var(--_hue-red-100);
-	--color-on-danger: #ffffff;
+	--color-on-danger: var(--_hue-white);        /* 대비 3.76 — 큰 글자 AA */
+
+	/* ===== Status — Info (0.2.1 추가, sky 램프) ===== */
+	--color-info: var(--_hue-sky-500);
+	--color-info-hover: var(--_hue-sky-600);
+	--color-info-active: var(--_hue-sky-700);
+	--color-info-subtle: var(--_hue-sky-100);
+	--color-on-info: var(--_hue-gray-950);
 
 	/* ===== Focus ring ===== */
 	--color-focus-ring: var(--_hue-blue-400);
 }
 
-/* ===== Dark — 시스템 자동 ===== */
+/* ===== Dark — 시스템 자동. `[data-theme="dark"]` 사본은 build 가 생성한다 ===== */
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme="light"]) {
+		color-scheme: dark;
+
 		--color-primary: var(--_hue-green-400);
 		--color-primary-hover: var(--_hue-green-300);
 		--color-primary-active: var(--_hue-green-200);
@@ -283,17 +349,28 @@
 		--color-surface-3: var(--_hue-gray-700);
 		--color-surface-4: var(--_hue-gray-600);
 		--color-surface-inverse: var(--_hue-gray-50);
-		--color-on-surface: var(--_hue-gray-100);
-		--color-on-surface-inverse: var(--_hue-gray-900);
+		--color-surface-hover: var(--_hue-gray-800);
+		--color-surface-active: var(--_hue-gray-700);
+		--color-surface-disabled: var(--_hue-gray-800);
 
 		--color-text: var(--_hue-gray-100);
 		--color-text-muted: var(--_hue-gray-400);
-		--color-text-subtle: var(--_hue-gray-600);
+		--color-text-subtle: var(--_hue-gray-500);   /* 0.2.1: 600(대비 2.53) → 500(4.17) */
 		--color-text-inverse: var(--_hue-gray-900);
+		--color-text-disabled: var(--_hue-gray-600);
+
+		--color-link: var(--_hue-blue-400);
+		--color-link-hover: var(--_hue-blue-300);
 
 		--color-border: var(--_hue-gray-800);
 		--color-border-strong: var(--_hue-gray-600);
 		--color-border-subtle: var(--_hue-gray-900);
+
+		--color-code-bg: var(--_hue-gray-950);
+		--color-code-fg: var(--_hue-gray-100);
+		--color-code-border: var(--_hue-gray-800);
+
+		--color-scrim: color-mix(in srgb, var(--_hue-gray-950) 60%, transparent);
 
 		--color-success: var(--_hue-emerald-400);
 		--color-success-hover: var(--_hue-emerald-300);
@@ -313,12 +390,20 @@
 		--color-danger-subtle: var(--_hue-red-900);
 		--color-on-danger: var(--_hue-gray-950);
 
+		--color-info: var(--_hue-sky-400);
+		--color-info-hover: var(--_hue-sky-300);
+		--color-info-active: var(--_hue-sky-200);
+		--color-info-subtle: var(--_hue-sky-900);
+		--color-on-info: var(--_hue-gray-950);
+
 		--color-focus-ring: var(--_hue-blue-300);
 	}
 }
 
-/* ===== Dark — 수동 강제 ===== */
+/* ===== Dark — 수동 강제. build 가 위 블록에서 생성 ===== */
 [data-theme="dark"] {
+	color-scheme: dark;
+
 	--color-primary: var(--_hue-green-400);
 	--color-primary-hover: var(--_hue-green-300);
 	--color-primary-active: var(--_hue-green-200);
@@ -343,17 +428,28 @@
 	--color-surface-3: var(--_hue-gray-700);
 	--color-surface-4: var(--_hue-gray-600);
 	--color-surface-inverse: var(--_hue-gray-50);
-	--color-on-surface: var(--_hue-gray-100);
-	--color-on-surface-inverse: var(--_hue-gray-900);
+	--color-surface-hover: var(--_hue-gray-800);
+	--color-surface-active: var(--_hue-gray-700);
+	--color-surface-disabled: var(--_hue-gray-800);
 
 	--color-text: var(--_hue-gray-100);
 	--color-text-muted: var(--_hue-gray-400);
-	--color-text-subtle: var(--_hue-gray-600);
+	--color-text-subtle: var(--_hue-gray-500);   /* 0.2.1: 600(대비 2.53) → 500(4.17) */
 	--color-text-inverse: var(--_hue-gray-900);
+	--color-text-disabled: var(--_hue-gray-600);
+
+	--color-link: var(--_hue-blue-400);
+	--color-link-hover: var(--_hue-blue-300);
 
 	--color-border: var(--_hue-gray-800);
 	--color-border-strong: var(--_hue-gray-600);
 	--color-border-subtle: var(--_hue-gray-900);
+
+	--color-code-bg: var(--_hue-gray-950);
+	--color-code-fg: var(--_hue-gray-100);
+	--color-code-border: var(--_hue-gray-800);
+
+	--color-scrim: color-mix(in srgb, var(--_hue-gray-950) 60%, transparent);
 
 	--color-success: var(--_hue-emerald-400);
 	--color-success-hover: var(--_hue-emerald-300);
@@ -373,84 +469,35 @@
 	--color-danger-subtle: var(--_hue-red-900);
 	--color-on-danger: var(--_hue-gray-950);
 
+	--color-info: var(--_hue-sky-400);
+	--color-info-hover: var(--_hue-sky-300);
+	--color-info-active: var(--_hue-sky-200);
+	--color-info-subtle: var(--_hue-sky-900);
+	--color-on-info: var(--_hue-gray-950);
+
 	--color-focus-ring: var(--_hue-blue-300);
 }
 
-/* ===== Light — 수동 강제 ===== */
-[data-theme="light"] {
-	--color-primary: var(--_hue-green-500);
-	--color-primary-hover: var(--_hue-green-600);
-	--color-primary-active: var(--_hue-green-700);
-	--color-primary-subtle: var(--_hue-green-100);
-	--color-on-primary: #ffffff;
-
-	--color-secondary: var(--_hue-blue-500);
-	--color-secondary-hover: var(--_hue-blue-600);
-	--color-secondary-active: var(--_hue-blue-700);
-	--color-secondary-subtle: var(--_hue-blue-100);
-	--color-on-secondary: #ffffff;
-
-	--color-tertiary: var(--_hue-amber-500);
-	--color-tertiary-hover: var(--_hue-amber-600);
-	--color-tertiary-active: var(--_hue-amber-700);
-	--color-tertiary-subtle: var(--_hue-amber-100);
-	--color-on-tertiary: var(--_hue-gray-900);
-
-	--color-surface: #ffffff;
-	--color-surface-1: var(--_hue-gray-50);
-	--color-surface-2: var(--_hue-gray-100);
-	--color-surface-3: var(--_hue-gray-200);
-	--color-surface-4: var(--_hue-gray-300);
-	--color-surface-inverse: var(--_hue-gray-900);
-	--color-on-surface: var(--_hue-gray-900);
-	--color-on-surface-inverse: #ffffff;
-
-	--color-text: var(--_hue-gray-900);
-	--color-text-muted: var(--_hue-gray-600);
-	--color-text-subtle: var(--_hue-gray-400);
-	--color-text-inverse: #ffffff;
-
-	--color-border: var(--_hue-gray-200);
-	--color-border-strong: var(--_hue-gray-400);
-	--color-border-subtle: var(--_hue-gray-100);
-
-	--color-success: var(--_hue-emerald-500);
-	--color-success-hover: var(--_hue-emerald-600);
-	--color-success-active: var(--_hue-emerald-700);
-	--color-success-subtle: var(--_hue-emerald-100);
-	--color-on-success: #ffffff;
-
-	--color-warning: var(--_hue-amber-500);
-	--color-warning-hover: var(--_hue-amber-600);
-	--color-warning-active: var(--_hue-amber-700);
-	--color-warning-subtle: var(--_hue-amber-100);
-	--color-on-warning: var(--_hue-gray-900);
-
-	--color-danger: var(--_hue-red-500);
-	--color-danger-hover: var(--_hue-red-600);
-	--color-danger-active: var(--_hue-red-700);
-	--color-danger-subtle: var(--_hue-red-100);
-	--color-on-danger: #ffffff;
-
-	--color-focus-ring: var(--_hue-blue-400);
-}
-/* ===== SEMANTIC — OPACITY ===== */
+/* ---------- css/semantic/opacity.css ---------- */
+/* ===== SEMANTIC — OPACITY =====
+ * 10 단위 램프. 0.2.1: 25·75 는 램프 밖이라 뺐다(deprecated.css 별칭).
+ */
 
 :root {
 	--opacity-0: 0;
 	--opacity-10: 0.1;
 	--opacity-20: 0.2;
-	--opacity-25: 0.25;
 	--opacity-30: 0.3;
 	--opacity-40: 0.4;
 	--opacity-50: 0.5;
 	--opacity-60: 0.6;
 	--opacity-70: 0.7;
-	--opacity-75: 0.75;
 	--opacity-80: 0.8;
 	--opacity-90: 0.9;
 	--opacity-100: 1;
 }
+
+/* ---------- css/semantic/radius.css ---------- */
 /* ===== SEMANTIC — BORDER RADIUS ===== */
 
 :root {
@@ -463,7 +510,12 @@
 	--radius-6: var(--_radius-scale-6);
 	--radius-full: 9999px;
 }
-/* ===== SEMANTIC — SHADOW ===== */
+
+/* ---------- css/semantic/shadow.css ---------- */
+/* ===== SEMANTIC — SHADOW =====
+ * elevation 5단계. 이름이 티셔츠(sm…2xl)인 유일한 축 — 숫자 통일은 이름 변경이라 보류.
+ * 0.2.1: --shadow-none 은 CSS 값이라 토큰에서 뺐다(deprecated.css 별칭).
+ */
 
 :root {
 	--shadow-sm: var(--_shadow-elev-1);
@@ -471,84 +523,37 @@
 	--shadow-lg: var(--_shadow-elev-3);
 	--shadow-xl: var(--_shadow-elev-4);
 	--shadow-2xl: var(--_shadow-elev-5);
-	--shadow-none: none;
 }
-/* ===== SEMANTIC — SPACING & SIZING =====
- * Spacing (padding, margin, gap)과 Sizing (width, height)은
- * 같은 그리드(4px 배수)에 살기 때문에 primitive(--_scale-*)를 공유.
- * 의미는 구분 — padding을 늘린다고 width가 따라 늘어야 하는 건 아니므로.
+
+/* ---------- css/semantic/spacing.css ---------- */
+/* ===== SEMANTIC — SPACING =====
+ * padding, margin, gap, width, height 가 모두 같은 4px 그리드(--_scale-*)를 쓴다.
+ * 0.2.1: 값이 완전히 같던 --size-N 은 --space-N 의 별칭으로 내려갔다(deprecated.css).
+ *        분수(50%)·뷰포트(100vw)·키워드(auto)는 설계 결정이 없는 CSS 값이라 토큰에서 뺐다.
+ *        유틸 클래스(w:1-2, h:screen-h)는 @newtil/css 생성기가 리터럴로 만든다.
  *
- * 단위는 모두 rem (--_scale-*가 rem 기반). 루트 font-size 조정 시 비례 확대.
+ * 단위는 모두 rem (--_scale-* 가 rem 기반). 루트 font-size 조정 시 비례 확대.
  */
 
 :root {
-	/* ===== Spacing — padding, margin, gap ===== */
-	--space-0: var(--_scale-0);
-	--space-1: var(--_scale-1);
-	--space-2: var(--_scale-2);
-	--space-3: var(--_scale-3);
-	--space-4: var(--_scale-4);
-	--space-5: var(--_scale-5);
-	--space-6: var(--_scale-6);
-	--space-7: var(--_scale-7);
-	--space-8: var(--_scale-8);
-	--space-9: var(--_scale-9);
-	--space-10: var(--_scale-10);
-	--space-11: var(--_scale-11);
-	--space-12: var(--_scale-12);
-	--space-13: var(--_scale-13);
-	--space-14: var(--_scale-14);
-
-	/* ===== Sizing — width, height ===== */
-	/* 스케일 값 (rem) — space와 동일 그리드 */
-	--size-0: var(--_scale-0);
-	--size-1: var(--_scale-1);
-	--size-2: var(--_scale-2);
-	--size-3: var(--_scale-3);
-	--size-4: var(--_scale-4);
-	--size-5: var(--_scale-5);
-	--size-6: var(--_scale-6);
-	--size-7: var(--_scale-7);
-	--size-8: var(--_scale-8);
-	--size-9: var(--_scale-9);
-	--size-10: var(--_scale-10);
-	--size-11: var(--_scale-11);
-	--size-12: var(--_scale-12);
-	--size-13: var(--_scale-13);
-	--size-14: var(--_scale-14);
-
-	/* 분수 size (퍼센트) — 컬럼 분할 등에 사용 */
-	--size-1-2: 50%;
-	--size-1-3: 33.333333%;
-	--size-2-3: 66.666667%;
-	--size-1-4: 25%;
-	--size-3-4: 75%;
-	--size-1-5: 20%;
-	--size-2-5: 40%;
-	--size-3-5: 60%;
-	--size-4-5: 80%;
-	--size-1-6: 16.666667%;
-	--size-5-6: 83.333333%;
-	--size-1-12: 8.333333%;
-	--size-5-12: 41.666667%;
-	--size-7-12: 58.333333%;
-	--size-11-12: 91.666667%;
-
-	/* 뷰포트 비율 size */
-	--size-screen-w-25: 25vw;
-	--size-screen-w-50: 50vw;
-	--size-screen-w-75: 75vw;
-	--size-screen-w: 100vw;        /* full */
-	--size-screen-h-25: 25vh;
-	--size-screen-h-50: 50vh;
-	--size-screen-h-75: 75vh;
-	--size-screen-h: 100vh;        /* full */
-
-	/* 키워드 size */
-	--size-full: 100%;
-	--size-half: 50%;
-	--size-auto: auto;
+	--space-0: var(--_scale-0);    /* 0 */
+	--space-1: var(--_scale-1);    /* 2px */
+	--space-2: var(--_scale-2);    /* 4px */
+	--space-3: var(--_scale-3);    /* 8px */
+	--space-4: var(--_scale-4);    /* 12px */
+	--space-5: var(--_scale-5);    /* 16px */
+	--space-6: var(--_scale-6);    /* 20px */
+	--space-7: var(--_scale-7);    /* 24px */
+	--space-8: var(--_scale-8);    /* 32px */
+	--space-9: var(--_scale-9);    /* 40px */
+	--space-10: var(--_scale-10);  /* 48px */
+	--space-11: var(--_scale-11);  /* 64px */
+	--space-12: var(--_scale-12);  /* 80px */
+	--space-13: var(--_scale-13);  /* 96px */
+	--space-14: var(--_scale-14);  /* 128px */
 }
+
+/* ---------- css/semantic/transition.css ---------- */
 /* ===== SEMANTIC — TRANSITION ===== */
 
 :root {
@@ -563,28 +568,29 @@
 	--ease-out: cubic-bezier(0, 0, 0.2, 1);
 	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* ===== SEMANTIC — TYPOGRAPHY ===== */
+
+/* ---------- css/semantic/typography.css ---------- */
+/* ===== SEMANTIC — TYPOGRAPHY =====
+ * 0.2.1: 글꼴 크기는 역할명 한 벌만 남겼다. 티셔츠명(xs…4xl)은 같은 값의 두 번째 이름이라 별칭으로 내려감(deprecated.css).
+ *        heading-xl(40px) 추가 — heading-lg(32) 와 display(48) 사이가 비어 페이지 제목 크기를 고를 수 없었다.
+ *        font-family 추가 — 시스템 스택. 호스트가 덮어쓴다.
+ */
 
 :root {
-	/* Font size — 역할 기반 (텍스트 콘텐츠용) */
-	--font-size-caption: var(--_font-scale-1);   /* 12px */
-	--font-size-body-sm: var(--_font-scale-2);   /* 14px */
-	--font-size-body: var(--_font-scale-3);      /* 16px */
-	--font-size-body-lg: var(--_font-scale-4);   /* 18px */
-	--font-size-heading-sm: var(--_font-scale-5); /* 20px */
-	--font-size-heading-md: var(--_font-scale-6); /* 24px */
-	--font-size-heading-lg: var(--_font-scale-7); /* 32px */
-	--font-size-display: var(--_font-scale-8);   /* 48px */
+	/* Font size — 역할 기반 */
+	--font-size-caption: var(--_font-scale-1);     /* 12px */
+	--font-size-body-sm: var(--_font-scale-2);     /* 14px */
+	--font-size-body: var(--_font-scale-3);        /* 16px */
+	--font-size-body-lg: var(--_font-scale-4);     /* 18px */
+	--font-size-heading-sm: var(--_font-scale-5);  /* 20px */
+	--font-size-heading-md: var(--_font-scale-6);  /* 24px */
+	--font-size-heading-lg: var(--_font-scale-7);  /* 32px */
+	--font-size-heading-xl: var(--_font-scale-8);  /* 40px */
+	--font-size-display: var(--_font-scale-9);     /* 48px */
 
-	/* Font size — 스케일 별칭 (컴포넌트·UI 요소용, 역할 구분 불필요할 때) */
-	--font-size-xs: var(--_font-scale-1);   /* 12px */
-	--font-size-sm: var(--_font-scale-2);   /* 14px */
-	--font-size-md: var(--_font-scale-3);   /* 16px (기본) */
-	--font-size-lg: var(--_font-scale-4);   /* 18px */
-	--font-size-xl: var(--_font-scale-5);   /* 20px */
-	--font-size-2xl: var(--_font-scale-6);  /* 24px */
-	--font-size-3xl: var(--_font-scale-7);  /* 32px */
-	--font-size-4xl: var(--_font-scale-8);  /* 48px */
+	/* Font family */
+	--font-family-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+	--font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
 	/* Font weight */
 	--font-weight-regular: 400;
@@ -602,17 +608,96 @@
 	--letter-spacing-normal: 0;
 	--letter-spacing-wide: 0.02em;
 }
+
+/* ---------- css/semantic/z-index.css ---------- */
 /* ===== SEMANTIC — Z-INDEX =====
- * 역할 기반. 사이 간격을 두어 중간 레이어 삽입 가능.
+ * 100 단위 층. fixed 는 0.2.1 추가 — 화면에 고정되는 내비(bar·rail·drawer)용. sticky 위, overlay 아래.
  */
 
 :root {
 	--z-base: 0;
 	--z-dropdown: 100;
 	--z-sticky: 200;
+	--z-fixed: 250;
 	--z-overlay: 300;
 	--z-modal: 400;
 	--z-popover: 500;
 	--z-toast: 600;
 	--z-tooltip: 700;
+}
+
+/* ---------- css/deprecated.css ---------- */
+/* ===== DEPRECATED — 0.2.1 에서 제거된 이름의 별칭 =====
+ * 다음 minor 에서 삭제한다. 새 이름으로 옮기세요.
+ * 이 파일의 토큰은 check 의 parity·hex 검사 대상이 아니다.
+ * `[data-theme]` 를 루트 외 요소에 붙여 부분 테마를 만든 경우에도 별칭이 그 요소의 값을 따르도록
+ * 셀렉터에 [data-theme] 를 포함한다.
+ */
+
+:root,
+[data-theme="light"],
+[data-theme="dark"] {
+	/* 표면 위 글자 → --color-text-* */
+	--color-on-surface: var(--color-text);
+	--color-on-surface-inverse: var(--color-text-inverse);
+
+	/* --size-N → --space-N (같은 값) */
+	--size-0: var(--space-0);
+	--size-1: var(--space-1);
+	--size-2: var(--space-2);
+	--size-3: var(--space-3);
+	--size-4: var(--space-4);
+	--size-5: var(--space-5);
+	--size-6: var(--space-6);
+	--size-7: var(--space-7);
+	--size-8: var(--space-8);
+	--size-9: var(--space-9);
+	--size-10: var(--space-10);
+	--size-11: var(--space-11);
+	--size-12: var(--space-12);
+	--size-13: var(--space-13);
+	--size-14: var(--space-14);
+
+	/* 분수·뷰포트·키워드 — 토큰이 아니라 CSS 값. @newtil/css 생성기 리터럴로 이동 */
+	--size-1-2: 50%;
+	--size-1-3: 33.333333%;
+	--size-2-3: 66.666667%;
+	--size-1-4: 25%;
+	--size-3-4: 75%;
+	--size-1-5: 20%;
+	--size-2-5: 40%;
+	--size-3-5: 60%;
+	--size-4-5: 80%;
+	--size-1-6: 16.666667%;
+	--size-5-6: 83.333333%;
+	--size-1-12: 8.333333%;
+	--size-5-12: 41.666667%;
+	--size-7-12: 58.333333%;
+	--size-11-12: 91.666667%;
+	--size-screen-w-25: 25vw;
+	--size-screen-w-50: 50vw;
+	--size-screen-w-75: 75vw;
+	--size-screen-w: 100vw;
+	--size-screen-h-25: 25vh;
+	--size-screen-h-50: 50vh;
+	--size-screen-h-75: 75vh;
+	--size-screen-h: 100vh;
+	--size-full: 100%;
+	--size-half: 50%;
+	--size-auto: auto;
+
+	/* font-size 티셔츠명 → 역할명 */
+	--font-size-xs: var(--font-size-caption);
+	--font-size-sm: var(--font-size-body-sm);
+	--font-size-md: var(--font-size-body);
+	--font-size-lg: var(--font-size-body-lg);
+	--font-size-xl: var(--font-size-heading-sm);
+	--font-size-2xl: var(--font-size-heading-md);
+	--font-size-3xl: var(--font-size-heading-lg);
+	--font-size-4xl: var(--font-size-display);
+
+	/* CSS 값 */
+	--shadow-none: none;
+	--opacity-25: 0.25;
+	--opacity-75: 0.75;
 }
