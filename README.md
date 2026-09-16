@@ -28,6 +28,12 @@ npm install @newtil/design-tokens
 }
 ```
 
+전경색 `--color-on-primary` 는 램프에서 계산되지 않는 고정값(기본 검정, 밝은 primary 전제)이다. primary 를 진한 색으로 바꿨으면 라이트 `on-primary` 를 흰색으로 같이 정한다. 안 하면 진한 버튼 위에 검정 글자가 뜬다.
+
+```css
+:root, [data-theme="light"] { --color-on-primary: #ffffff; }
+```
+
 다크모드는 아무것도 안 해도 OS 를 따른다. 수동 강제는 `<html data-theme="dark">` / `"light"`, 루트가 아닌 요소에 붙이면 그 부분만 바뀐다. 다른 import 방식(브라우저 `<link>`, 소스 카테고리별 import)과 semantic 직접 변경 규칙은 문서 참고.
 
 ## 문서

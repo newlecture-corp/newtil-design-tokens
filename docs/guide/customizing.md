@@ -40,6 +40,24 @@ primitive 램프를 바꾼다. 라이트는 `--_hue-green-500`, 다크는 `--_hu
 primary 를 밝은 색으로 바꾸면 `--color-on-primary`(gray-950) 와의 대비가 달라진다. 이 패키지의 `npm run check` 는 소스만 검사하므로 소비자 오버라이드는 직접 확인해야 한다. 기준은 on-X 대 X ≥ 3.0, text 대 surface ≥ 4.5.
 :::
 
+## 램프를 바꿨으면 `on-*` 도 확인한다
+
+`--color-on-primary`, `--color-on-secondary` 같은 전경색은 램프에서 계산되지 않는 **고정값**이다. 기본값은 밝은 primary(연두 `#8cba35`)를 전제로 라이트·다크 모두 `gray-950`(검정)이다.
+
+primary 램프를 진한 색(갈색·남색 등)으로 바꾸면 라이트 `on-primary` 를 흰색으로 함께 정해야 한다. 안 하면 진한 버튼 위에 검정 글자가 뜬다.
+
+```css
+:root {
+  --_hue-green-500: #5c3d2e;   /* 진한 갈색 primary */
+  --_hue-green-600: #462d21;
+  --_hue-green-700: #35211a;
+}
+:root, [data-theme="light"] { --color-on-primary: #ffffff; }
+/* 다크 primary(400)가 여전히 밝다면 다크 on-primary 는 기본(검정) 그대로 */
+```
+
+`npm run check` 는 패키지 기본값의 `on-X` 대 `X` 대비만 잰다. 사용자 오버라이드는 검사 밖이므로 램프를 바꾼 뒤 버튼 하나를 눈으로 확인하는 것이 가장 빠르다.
+
 ## semantic 직접 변경 — 3 셀렉터
 
 역할의 값을 팔레트 밖 색으로 바꾸거나 다른 램프로 옮길 때다. 라이트 한 벌과 다크 두 벌(시스템 자동 + 수동 강제)을 **모두** 써야 한다.
