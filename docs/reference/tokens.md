@@ -12,7 +12,7 @@ outline: [2, 3]
 
 # 토큰 레퍼런스
 
-`css/primitive` 와 `css/semantic` 소스에서 생성한 전체 목록이다. semantic 140개, primitive 114개.
+`css/primitive` 와 `css/semantic` 소스에서 생성한 전체 목록이다. semantic 141개, primitive 114개.
 
 - **값** 열은 참조(`var(--_…)`)를 끝까지 풀어 실제 hex·rem 을 보여준다. 참조로 정의된 토큰은 원래 참조를 작은 글씨로 함께 적었다.
 - **다크 값** 열은 `@media (prefers-color-scheme: dark)` 블록의 값이다. 다크 블록이 없는 축(간격·글꼴·모서리 등)은 테마와 무관하게 한 값이다.
@@ -51,11 +51,11 @@ outline: [2, 3]
 
 | 토큰 | 라이트 값 | 다크 값 | 설명 |
 |---|---|---|---|
-| `--color-primary` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35`<br><small>`var(--_hue-green-500)`</small> | <span class="tk-swatch" style="background:#a3e635"></span> `#a3e635`<br><small>`var(--_hue-green-400)`</small> |  |
-| `--color-primary-hover` | <span class="tk-swatch" style="background:#65a30d"></span> `#65a30d`<br><small>`var(--_hue-green-600)`</small> | <span class="tk-swatch" style="background:#bef264"></span> `#bef264`<br><small>`var(--_hue-green-300)`</small> |  |
-| `--color-primary-active` | <span class="tk-swatch" style="background:#4d7c0f"></span> `#4d7c0f`<br><small>`var(--_hue-green-700)`</small> | <span class="tk-swatch" style="background:#d9f99d"></span> `#d9f99d`<br><small>`var(--_hue-green-200)`</small> |  |
-| `--color-primary-subtle` | <span class="tk-swatch" style="background:#ecfccb"></span> `#ecfccb`<br><small>`var(--_hue-green-100)`</small> | <span class="tk-swatch" style="background:#365314"></span> `#365314`<br><small>`var(--_hue-green-900)`</small> |  |
-| `--color-on-primary` | <span class="tk-swatch" style="background:#0a0a0a"></span> `#0a0a0a`<br><small>`var(--_hue-gray-950)`</small> | <span class="tk-swatch" style="background:#0a0a0a"></span> `#0a0a0a`<br><small>`var(--_hue-gray-950)`</small> | 0.2.1: 흰색(대비 2.29) → 검정(8.5) |
+| `--color-primary` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35`<br><small>`var(--_hue-green-500)`</small> | `oklch(from #8cba35 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`<br><small>`var(--_hue-green-400)`</small> |  |
+| `--color-primary-hover` | `oklch(from #8cba35 calc(l * 0.86) calc(c * 0.95) h)`<br><small>`var(--_hue-green-600)`</small> | `oklch(from #8cba35 calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`<br><small>`var(--_hue-green-300)`</small> |  |
+| `--color-primary-active` | `oklch(from #8cba35 calc(l * 0.71) calc(c * 0.75) h)`<br><small>`var(--_hue-green-700)`</small> | `oklch(from #8cba35 calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`<br><small>`var(--_hue-green-200)`</small> |  |
+| `--color-primary-subtle` | `oklch(from #8cba35 calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`<br><small>`var(--_hue-green-100)`</small> | `oklch(from #8cba35 calc(l * 0.55) calc(c * 0.58) h)`<br><small>`var(--_hue-green-900)`</small> |  |
+| `--color-on-primary` | `oklch(from #8cba35 clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`<br><small>`oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`</small> | `oklch(from oklch(from #8cba35 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`<br><small>`oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`</small> |  |
 
 ### Brand — Secondary
 
@@ -317,7 +317,7 @@ outline: [2, 3]
 
 ## Hue — 색상 팔레트
 
-소스: `css/primitive/hue.css` · 78개
+소스: `css/primitive/hue.css` · 79개
 
 | 토큰 | 값 | 설명 |
 |---|---|---|
@@ -332,17 +332,18 @@ outline: [2, 3]
 | `--_hue-gray-800` | <span class="tk-swatch" style="background:#262626"></span> `#262626` |  |
 | `--_hue-gray-900` | <span class="tk-swatch" style="background:#171717"></span> `#171717` |  |
 | `--_hue-gray-950` | <span class="tk-swatch" style="background:#0a0a0a"></span> `#0a0a0a` |  |
-| `--_hue-green-50` | <span class="tk-swatch" style="background:#f7fee7"></span> `#f7fee7` |  |
-| `--_hue-green-100` | <span class="tk-swatch" style="background:#ecfccb"></span> `#ecfccb` |  |
-| `--_hue-green-200` | <span class="tk-swatch" style="background:#d9f99d"></span> `#d9f99d` |  |
-| `--_hue-green-300` | <span class="tk-swatch" style="background:#bef264"></span> `#bef264` |  |
-| `--_hue-green-400` | <span class="tk-swatch" style="background:#a3e635"></span> `#a3e635` |  |
-| `--_hue-green-500` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35` |  |
-| `--_hue-green-600` | <span class="tk-swatch" style="background:#65a30d"></span> `#65a30d` |  |
-| `--_hue-green-700` | <span class="tk-swatch" style="background:#4d7c0f"></span> `#4d7c0f` |  |
-| `--_hue-green-800` | <span class="tk-swatch" style="background:#3f6212"></span> `#3f6212` |  |
-| `--_hue-green-900` | <span class="tk-swatch" style="background:#365314"></span> `#365314` |  |
-| `--_hue-green-950` | <span class="tk-swatch" style="background:#1a2e05"></span> `#1a2e05` |  |
+| `--brand` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35` |  |
+| `--_hue-green-50` | `oklch(from #8cba35 calc(l + (1 - l) * 0.95) calc(c * 0.2)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.95) calc(c * 0.2)  h)`</small> |  |
+| `--_hue-green-100` | `oklch(from #8cba35 calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`</small> |  |
+| `--_hue-green-200` | `oklch(from #8cba35 calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`</small> |  |
+| `--_hue-green-300` | `oklch(from #8cba35 calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`</small> |  |
+| `--_hue-green-400` | `oklch(from #8cba35 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`</small> |  |
+| `--_hue-green-500` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35`<br><small>`var(--brand)`</small> |  |
+| `--_hue-green-600` | `oklch(from #8cba35 calc(l * 0.86) calc(c * 0.95) h)`<br><small>`oklch(from var(--brand) calc(l * 0.86) calc(c * 0.95) h)`</small> |  |
+| `--_hue-green-700` | `oklch(from #8cba35 calc(l * 0.71) calc(c * 0.75) h)`<br><small>`oklch(from var(--brand) calc(l * 0.71) calc(c * 0.75) h)`</small> |  |
+| `--_hue-green-800` | `oklch(from #8cba35 calc(l * 0.62) calc(c * 0.65) h)`<br><small>`oklch(from var(--brand) calc(l * 0.62) calc(c * 0.65) h)`</small> |  |
+| `--_hue-green-900` | `oklch(from #8cba35 calc(l * 0.55) calc(c * 0.58) h)`<br><small>`oklch(from var(--brand) calc(l * 0.55) calc(c * 0.58) h)`</small> |  |
+| `--_hue-green-950` | `oklch(from #8cba35 calc(l * 0.38) calc(c * 0.4)  h)`<br><small>`oklch(from var(--brand) calc(l * 0.38) calc(c * 0.4)  h)`</small> |  |
 | `--_hue-blue-50` | <span class="tk-swatch" style="background:#eff6ff"></span> `#eff6ff` |  |
 | `--_hue-blue-100` | <span class="tk-swatch" style="background:#dbeafe"></span> `#dbeafe` |  |
 | `--_hue-blue-200` | <span class="tk-swatch" style="background:#bfdbfe"></span> `#bfdbfe` |  |

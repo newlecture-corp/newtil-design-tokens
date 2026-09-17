@@ -16,23 +16,13 @@ npm install @newtil/design-tokens
 @import "@newtil/design-tokens";   /* = dist/tokens.css. 수동 테마 전환 포함 */
 ```
 
-브랜드색은 primitive 램프를 덮어쓴다. 라이트·다크가 같이 따라온다.
+브랜드색은 씨앗 하나로 바꾼다. 램프(50~950)와 `--color-on-primary`(글자색) 가 계산되어 라이트·다크가 같이 따라온다.
 
 ```css
-:root {
-	--_hue-green-400: #9dd3ff;   /* 다크 primary */
-	--_hue-green-500: #2f80ed;   /* 라이트 primary */
-	--_hue-green-600: #1c6dd0;   /* hover */
-	--_hue-green-700: #155aa8;   /* active */
-	--_hue-green-100: #e3f0ff;   /* subtle */
-}
+:root { --brand: #5c3d2e; }
 ```
 
-전경색 `--color-on-primary` 는 램프에서 계산되지 않는 고정값(기본 검정, 밝은 primary 전제)이다. primary 를 진한 색으로 바꿨으면 라이트 `on-primary` 를 흰색으로 같이 정한다. 안 하면 진한 버튼 위에 검정 글자가 뜬다.
-
-```css
-:root, [data-theme="light"] { --color-on-primary: #ffffff; }
-```
+특정 단계를 손으로 정하고 싶으면 그 단계를 hex 로 덮는다(`--_hue-green-100: #f2eae4;`). 계산식보다 우선한다.
 
 다크모드는 아무것도 안 해도 OS 를 따른다. 수동 강제는 `<html data-theme="dark">` / `"light"`, 루트가 아닌 요소에 붙이면 그 부분만 바뀐다. 다른 import 방식(브라우저 `<link>`, 소스 카테고리별 import)과 semantic 직접 변경 규칙은 문서 참고.
 

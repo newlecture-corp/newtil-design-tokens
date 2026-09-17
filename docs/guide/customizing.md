@@ -10,34 +10,39 @@
 
 ## 브랜드색 교체 (권장)
 
-primitive 램프를 바꾼다. 라이트는 `--_hue-green-500`, 다크는 `--_hue-green-400` 을 primary 로 쓰므로 램프의 해당 단을 바꾸면 두 테마가 같이 따라온다.
+씨앗 `--brand` 하나를 준다. 0.2.3 부터 green 램프(50~950)는 씨앗에서 oklch 로 계산되고, `--color-on-primary` 는 primary 의 밝기(l ≥ 0.62 면 진회색, 아니면 흰색)로 자동 선택된다. 라이트(500)·다크(400)·hover·active·subtle 이 모두 따라온다.
 
 ```css
 @import "@newtil/design-tokens";
 
+:root { --brand: #5c3d2e; }   /* NCafe 갈색 */
+```
+
+계산 규칙: 밝은 단계는 `l + (1 - l) × k`(50: 0.95 … 400: 0.4), 어두운 단계는 `l × k`(600: 0.86 … 950: 0.38), 채도는 단계별 계수(양 끝으로 갈수록 줄어든다), 색상(h)은 그대로. 계수는 손으로 고른 기존 램프 두 벌에 맞춰 뽑았다(ΔE_ok×100 ≤ 3). 브라우저의 상대 색 문법(`oklch(from …)`)을 쓰므로 Chrome 119 · Safari 16.4 · Firefox 128 이상이 필요하다.
+
+특정 단계를 직접 정하고 싶으면 그 단계만 hex 로 덮는다. 계산식보다 우선한다.
+
+```css
 :root {
-	--_hue-green-400: #9dd3ff;   /* 다크 primary */
-	--_hue-green-500: #2f80ed;   /* 라이트 primary */
-	--_hue-green-600: #1c6dd0;   /* 라이트 hover */
-	--_hue-green-700: #155aa8;   /* 라이트 active */
-	--_hue-green-100: #e3f0ff;   /* 라이트 subtle */
+	--brand: #2f80ed;
+	--_hue-green-100: #e3f0ff;   /* subtle 만 손으로 */
 }
 ```
 
-`css/semantic/color.css` 에서 primary 가 램프의 어느 단을 쓰는지는 다음과 같다. 다크 hover·active·subtle 까지 맞추려면 300·200·900 도 바꾼다.
+`css/semantic/color.css` 에서 primary 가 램프의 어느 단을 쓰는지는 다음과 같다.
 
 | 토큰 | 라이트 | 다크 |
 |---|---|---|
-| `--color-primary` | `--_hue-green-500` | `--_hue-green-400` |
+| `--color-primary` | `--_hue-green-500` (= `--brand`) | `--_hue-green-400` |
 | `--color-primary-hover` | `--_hue-green-600` | `--_hue-green-300` |
 | `--color-primary-active` | `--_hue-green-700` | `--_hue-green-200` |
 | `--color-primary-subtle` | `--_hue-green-100` | `--_hue-green-900` |
-| `--color-on-primary` | `--_hue-gray-950` | `--_hue-gray-950` |
+| `--color-on-primary` | primary 밝기로 자동 | primary 밝기로 자동 |
 
 같은 방식으로 `--_hue-blue-*` 는 secondary·link·focus-ring, `--_hue-red-*` 는 danger, `--_hue-amber-*` 는 warning(과 tertiary), `--_hue-emerald-*` 는 success, `--_hue-sky-*` 는 info, `--_hue-gray-*` 는 surface·text·border 를 움직인다.
 
 ::: tip 대비 확인
-primary 를 밝은 색으로 바꾸면 `--color-on-primary`(gray-950) 와의 대비가 달라진다. 이 패키지의 `npm run check` 는 소스만 검사하므로 소비자 오버라이드는 직접 확인해야 한다. 기준은 on-X 대 X ≥ 3.0, text 대 surface ≥ 4.5.
+`--color-on-primary` 는 자동이지만 hover·active 단계 위의 글자, 그리고 `--brand` 가 중간 밝기(l 0.55~0.7)일 때는 대비가 3.0 근처가 될 수 있다. 이 패키지의 `npm run check` 는 소스만 검사하므로 소비자 오버라이드는 직접 확인해야 한다. 기준은 on-X 대 X ≥ 3.0, text 대 surface ≥ 4.5.
 :::
 
 ## 램프를 바꿨으면 `on-*` 도 확인한다

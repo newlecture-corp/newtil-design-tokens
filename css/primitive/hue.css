@@ -18,18 +18,23 @@
 	--_hue-gray-900: #171717;
 	--_hue-gray-950: #0a0a0a;
 
-	/* Green — 브랜드 메인 컬러 (500 = #8cba35 근사) */
-	--_hue-green-50: #f7fee7;
-	--_hue-green-100: #ecfccb;
-	--_hue-green-200: #d9f99d;
-	--_hue-green-300: #bef264;
-	--_hue-green-400: #a3e635;
-	--_hue-green-500: #8cba35;
-	--_hue-green-600: #65a30d;
-	--_hue-green-700: #4d7c0f;
-	--_hue-green-800: #3f6212;
-	--_hue-green-900: #365314;
-	--_hue-green-950: #1a2e05;
+	/* Green — 브랜드 메인 컬러. 0.2.3: 씨앗 하나(--brand)에서 램프를 계산한다.
+	 * 브랜드를 바꿀 때는 --brand 만 준다: `:root { --brand: #5c3d2e; }` (테마 파일).
+	 * 단계는 oklch 상대 색 문법 — 밝은 쪽은 흰색 방향으로 l 을 올리고(채도는 단계별 계수), 어두운 쪽은 l 을 줄인다.
+	 * 계수는 손으로 고른 두 램프(기존 green, NCafe 갈색)에 맞춰 뽑았다(ΔE_ok×100 ≤ 3). 특정 단계를 직접 정하고 싶으면 hex 로 덮는다.
+	 * --brand 는 primitive 중 유일하게 밖에서 쓰라고 둔 이름이다. */
+	--brand: #8cba35;
+	--_hue-green-50:  oklch(from var(--brand) calc(l + (1 - l) * 0.95) calc(c * 0.2)  h);
+	--_hue-green-100: oklch(from var(--brand) calc(l + (1 - l) * 0.88) calc(c * 0.32) h);
+	--_hue-green-200: oklch(from var(--brand) calc(l + (1 - l) * 0.75) calc(c * 0.7)  h);
+	--_hue-green-300: oklch(from var(--brand) calc(l + (1 - l) * 0.58) calc(c * 0.95) h);
+	--_hue-green-400: oklch(from var(--brand) calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h);
+	--_hue-green-500: var(--brand);
+	--_hue-green-600: oklch(from var(--brand) calc(l * 0.86) calc(c * 0.95) h);
+	--_hue-green-700: oklch(from var(--brand) calc(l * 0.71) calc(c * 0.75) h);
+	--_hue-green-800: oklch(from var(--brand) calc(l * 0.62) calc(c * 0.65) h);
+	--_hue-green-900: oklch(from var(--brand) calc(l * 0.55) calc(c * 0.58) h);
+	--_hue-green-950: oklch(from var(--brand) calc(l * 0.38) calc(c * 0.4)  h);
 
 	/* Blue — 서브/인포 컬러 */
 	--_hue-blue-50: #eff6ff;
