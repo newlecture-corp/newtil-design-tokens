@@ -351,8 +351,10 @@
 		--color-tertiary-subtle: var(--_hue-amber-900);
 		--color-on-tertiary: var(--_hue-gray-950);
 
-		--color-surface: var(--_hue-gray-950);
-		--color-surface-1: var(--_hue-gray-900);
+		/* 0.2.4: 다크에서도 라이트와 같은 관계 — surface-1(바닥)이 가장 어둡고 surface(카드)가 그 위에 뜬다.
+		   전엔 surface(950)가 바닥(900)보다 어두워 카드가 구멍처럼 보였다 */
+		--color-surface: var(--_hue-gray-900);
+		--color-surface-1: var(--_hue-gray-950);
 		--color-surface-2: var(--_hue-gray-800);
 		--color-surface-3: var(--_hue-gray-700);
 		--color-surface-4: var(--_hue-gray-600);
@@ -430,8 +432,10 @@
 	--color-tertiary-subtle: var(--_hue-amber-900);
 	--color-on-tertiary: var(--_hue-gray-950);
 
-	--color-surface: var(--_hue-gray-950);
-	--color-surface-1: var(--_hue-gray-900);
+	/* 0.2.4: 다크에서도 라이트와 같은 관계 — surface-1(바닥)이 가장 어둡고 surface(카드)가 그 위에 뜬다.
+	   전엔 surface(950)가 바닥(900)보다 어두워 카드가 구멍처럼 보였다 */
+	--color-surface: var(--_hue-gray-900);
+	--color-surface-1: var(--_hue-gray-950);
 	--color-surface-2: var(--_hue-gray-800);
 	--color-surface-3: var(--_hue-gray-700);
 	--color-surface-4: var(--_hue-gray-600);
