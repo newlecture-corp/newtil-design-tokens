@@ -1,6 +1,6 @@
 {
 	"name": "@newtil/design-tokens",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"description": "Shared CSS design tokens (variables) for the newtil ecosystem — colors, spacing, sizes, shadows, typography",
 	"publishConfig": {
 		"access": "public"

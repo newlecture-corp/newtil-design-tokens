@@ -51,11 +51,11 @@ outline: [2, 3]
 
 | 토큰 | 라이트 값 | 다크 값 | 설명 |
 |---|---|---|---|
-| `--color-primary` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35`<br><small>`var(--_hue-green-500)`</small> | `oklch(from #8cba35 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`<br><small>`var(--_hue-green-400)`</small> |  |
-| `--color-primary-hover` | `oklch(from #8cba35 calc(l * 0.86) calc(c * 0.95) h)`<br><small>`var(--_hue-green-600)`</small> | `oklch(from #8cba35 calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`<br><small>`var(--_hue-green-300)`</small> |  |
-| `--color-primary-active` | `oklch(from #8cba35 calc(l * 0.71) calc(c * 0.75) h)`<br><small>`var(--_hue-green-700)`</small> | `oklch(from #8cba35 calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`<br><small>`var(--_hue-green-200)`</small> |  |
-| `--color-primary-subtle` | `oklch(from #8cba35 calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`<br><small>`var(--_hue-green-100)`</small> | `oklch(from #8cba35 calc(l * 0.55) calc(c * 0.58) h)`<br><small>`var(--_hue-green-900)`</small> |  |
-| `--color-on-primary` | `oklch(from #8cba35 clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`<br><small>`oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`</small> | `oklch(from oklch(from #8cba35 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`<br><small>`oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`</small> |  |
+| `--color-primary` | <span class="tk-swatch" style="background:#398526"></span> `#398526`<br><small>`var(--_hue-green-500)`</small> | `oklch(from #398526 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`<br><small>`var(--_hue-green-400)`</small> |  |
+| `--color-primary-hover` | `oklch(from #398526 calc(l * 0.86) calc(c * 0.95) h)`<br><small>`var(--_hue-green-600)`</small> | `oklch(from #398526 calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`<br><small>`var(--_hue-green-300)`</small> |  |
+| `--color-primary-active` | `oklch(from #398526 calc(l * 0.71) calc(c * 0.75) h)`<br><small>`var(--_hue-green-700)`</small> | `oklch(from #398526 calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`<br><small>`var(--_hue-green-200)`</small> |  |
+| `--color-primary-subtle` | `oklch(from #398526 calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`<br><small>`var(--_hue-green-100)`</small> | `oklch(from #398526 calc(l * 0.55) calc(c * 0.58) h)`<br><small>`var(--_hue-green-900)`</small> |  |
+| `--color-on-primary` | `oklch(from #398526 clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`<br><small>`oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`</small> | `oklch(from oklch(from #398526 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`<br><small>`oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0)`</small> |  |
 
 ### Brand — Secondary
 
@@ -332,18 +332,18 @@ outline: [2, 3]
 | `--_hue-gray-800` | <span class="tk-swatch" style="background:#262626"></span> `#262626` |  |
 | `--_hue-gray-900` | <span class="tk-swatch" style="background:#171717"></span> `#171717` |  |
 | `--_hue-gray-950` | <span class="tk-swatch" style="background:#0a0a0a"></span> `#0a0a0a` |  |
-| `--brand` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35` |  |
-| `--_hue-green-50` | `oklch(from #8cba35 calc(l + (1 - l) * 0.95) calc(c * 0.2)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.95) calc(c * 0.2)  h)`</small> |  |
-| `--_hue-green-100` | `oklch(from #8cba35 calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`</small> |  |
-| `--_hue-green-200` | `oklch(from #8cba35 calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`</small> |  |
-| `--_hue-green-300` | `oklch(from #8cba35 calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`</small> |  |
-| `--_hue-green-400` | `oklch(from #8cba35 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`</small> |  |
-| `--_hue-green-500` | <span class="tk-swatch" style="background:#8cba35"></span> `#8cba35`<br><small>`var(--brand)`</small> |  |
-| `--_hue-green-600` | `oklch(from #8cba35 calc(l * 0.86) calc(c * 0.95) h)`<br><small>`oklch(from var(--brand) calc(l * 0.86) calc(c * 0.95) h)`</small> |  |
-| `--_hue-green-700` | `oklch(from #8cba35 calc(l * 0.71) calc(c * 0.75) h)`<br><small>`oklch(from var(--brand) calc(l * 0.71) calc(c * 0.75) h)`</small> |  |
-| `--_hue-green-800` | `oklch(from #8cba35 calc(l * 0.62) calc(c * 0.65) h)`<br><small>`oklch(from var(--brand) calc(l * 0.62) calc(c * 0.65) h)`</small> |  |
-| `--_hue-green-900` | `oklch(from #8cba35 calc(l * 0.55) calc(c * 0.58) h)`<br><small>`oklch(from var(--brand) calc(l * 0.55) calc(c * 0.58) h)`</small> |  |
-| `--_hue-green-950` | `oklch(from #8cba35 calc(l * 0.38) calc(c * 0.4)  h)`<br><small>`oklch(from var(--brand) calc(l * 0.38) calc(c * 0.4)  h)`</small> |  |
+| `--brand` | <span class="tk-swatch" style="background:#398526"></span> `#398526` | 0.2.4: 흰 글자가 올라가는 깊이(대비 4.6). 전엔 #8cba35 연두라 글자가 검정이었다 |
+| `--_hue-green-50` | `oklch(from #398526 calc(l + (1 - l) * 0.95) calc(c * 0.2)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.95) calc(c * 0.2)  h)`</small> |  |
+| `--_hue-green-100` | `oklch(from #398526 calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.88) calc(c * 0.32) h)`</small> |  |
+| `--_hue-green-200` | `oklch(from #398526 calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.75) calc(c * 0.7)  h)`</small> |  |
+| `--_hue-green-300` | `oklch(from #398526 calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.58) calc(c * 0.95) h)`</small> |  |
+| `--_hue-green-400` | `oklch(from #398526 calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`<br><small>`oklch(from var(--brand) calc(l + (1 - l) * 0.4)  calc(c * 1.1)  h)`</small> |  |
+| `--_hue-green-500` | <span class="tk-swatch" style="background:#398526"></span> `#398526`<br><small>`var(--brand)`</small> |  |
+| `--_hue-green-600` | `oklch(from #398526 calc(l * 0.86) calc(c * 0.95) h)`<br><small>`oklch(from var(--brand) calc(l * 0.86) calc(c * 0.95) h)`</small> |  |
+| `--_hue-green-700` | `oklch(from #398526 calc(l * 0.71) calc(c * 0.75) h)`<br><small>`oklch(from var(--brand) calc(l * 0.71) calc(c * 0.75) h)`</small> |  |
+| `--_hue-green-800` | `oklch(from #398526 calc(l * 0.62) calc(c * 0.65) h)`<br><small>`oklch(from var(--brand) calc(l * 0.62) calc(c * 0.65) h)`</small> |  |
+| `--_hue-green-900` | `oklch(from #398526 calc(l * 0.55) calc(c * 0.58) h)`<br><small>`oklch(from var(--brand) calc(l * 0.55) calc(c * 0.58) h)`</small> |  |
+| `--_hue-green-950` | `oklch(from #398526 calc(l * 0.38) calc(c * 0.4)  h)`<br><small>`oklch(from var(--brand) calc(l * 0.38) calc(c * 0.4)  h)`</small> |  |
 | `--_hue-blue-50` | <span class="tk-swatch" style="background:#eff6ff"></span> `#eff6ff` |  |
 | `--_hue-blue-100` | <span class="tk-swatch" style="background:#dbeafe"></span> `#dbeafe` |  |
 | `--_hue-blue-200` | <span class="tk-swatch" style="background:#bfdbfe"></span> `#bfdbfe` |  |

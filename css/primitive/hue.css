@@ -19,11 +19,12 @@
 	--_hue-gray-950: #0a0a0a;
 
 	/* Green — 브랜드 메인 컬러. 0.2.3: 씨앗 하나(--brand)에서 램프를 계산한다.
+	 * 기본 씨앗은 흰 글자를 올릴 수 있는 깊이여야 한다(WCAG 4.5). 연한 씨앗을 주면 on-primary 가 자동으로 진회색이 된다.
 	 * 브랜드를 바꿀 때는 --brand 만 준다: `:root { --brand: #5c3d2e; }` (테마 파일).
 	 * 단계는 oklch 상대 색 문법 — 밝은 쪽은 흰색 방향으로 l 을 올리고(채도는 단계별 계수), 어두운 쪽은 l 을 줄인다.
 	 * 계수는 손으로 고른 두 램프(기존 green, NCafe 갈색)에 맞춰 뽑았다(ΔE_ok×100 ≤ 3). 특정 단계를 직접 정하고 싶으면 hex 로 덮는다.
 	 * --brand 는 primitive 중 유일하게 밖에서 쓰라고 둔 이름이다. */
-	--brand: #8cba35;
+	--brand: #398526;                                      /* 0.2.4: 흰 글자가 올라가는 깊이(대비 4.6). 전엔 #8cba35 연두라 글자가 검정이었다 */
 	--_hue-green-50:  oklch(from var(--brand) calc(l + (1 - l) * 0.95) calc(c * 0.2)  h);
 	--_hue-green-100: oklch(from var(--brand) calc(l + (1 - l) * 0.88) calc(c * 0.32) h);
 	--_hue-green-200: oklch(from var(--brand) calc(l + (1 - l) * 0.75) calc(c * 0.7)  h);
