@@ -76,9 +76,9 @@ const ok2srgb = ({ l: L, c: C, h: H }) => {
 };
 const evalExpr = (expr, vars) => {
 	// calc() 은 괄호로, clamp() 은 함수로 — clamp 안에 calc 이 겹쳐도(0.2.5 on-primary) 괄호 짝만 맞으면 된다
-	let e = expr.replace(/\b(l|c|h)\b/g, (m) => String(vars[m])).replace(/calc\(/g, "(").replace(/clamp\(/g, "__clamp(");
-	if (!/^[\d\s.+\-*\/()_clamp,]+$/.test(e)) throw new Error(`계산식 아님: ${expr}`);
-	return Function(`"use strict"; const __clamp = (lo, x, hi) => Math.min(Math.max(x, lo), hi); return (${e});`)();
+	let e = expr.replace(/\b(l|c|h)\b/g, (m) => String(vars[m])).replace(/calc\(/g, "(").replace(/clamp\(/g, "__clamp(").replace(/\bmin\(/g, "__min(").replace(/\bmax\(/g, "__max(");
+	if (!/^[\d\s.+\-*\/()_clampinx,]+$/.test(e)) throw new Error(`계산식 아님: ${expr}`);
+	return Function(`"use strict"; const __clamp = (lo, x, hi) => Math.min(Math.max(x, lo), hi), __min = Math.min, __max = Math.max; return (${e});`)();
 };
 function evalColor(v) {
 	v = v.replace(/\s+/g, " ").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")");   // 여러 줄로 쓴 값도 한 줄로
