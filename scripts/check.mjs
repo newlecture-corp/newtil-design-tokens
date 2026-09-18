@@ -75,11 +75,13 @@ const ok2srgb = ({ l: L, c: C, h: H }) => {
 	return "#" + lin.map((c) => Math.round(gam(c) * 255).toString(16).padStart(2, "0")).join("");
 };
 const evalExpr = (expr, vars) => {
-	let e = expr.replace(/\b(l|c|h)\b/g, (m) => String(vars[m])).replace(/calc\(/g, "(").replace(/clamp\(([^,]+),([^,]+),([^)]+)\)/g, "Math.min(Math.max($2,$1),$3)");
-	if (!/^[\d\s.+\-*\/()Mathminx,]+$/.test(e)) throw new Error(`계산식 아님: ${expr}`);
-	return Function(`"use strict"; return (${e});`)();
+	// calc() 은 괄호로, clamp() 은 함수로 — clamp 안에 calc 이 겹쳐도(0.2.5 on-primary) 괄호 짝만 맞으면 된다
+	let e = expr.replace(/\b(l|c|h)\b/g, (m) => String(vars[m])).replace(/calc\(/g, "(").replace(/clamp\(/g, "__clamp(");
+	if (!/^[\d\s.+\-*\/()_clamp,]+$/.test(e)) throw new Error(`계산식 아님: ${expr}`);
+	return Function(`"use strict"; const __clamp = (lo, x, hi) => Math.min(Math.max(x, lo), hi); return (${e});`)();
 };
 function evalColor(v) {
+	v = v.replace(/\s+/g, " ").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")");   // 여러 줄로 쓴 값도 한 줄로
 	for (let i = 0; i < 8; i++) {
 		const m = v.match(/oklch\(from\s+(#[0-9a-fA-F]{3,8})\s+(.+)\)$/) || v.match(/oklch\(from\s+(#[0-9a-fA-F]{3,8})\s+(.+?)\)(?=\s|$)/);
 		if (!m) return v;

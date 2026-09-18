@@ -238,8 +238,15 @@
 	--color-primary-hover: var(--_hue-green-600);
 	--color-primary-active: var(--_hue-green-700);
 	--color-primary-subtle: var(--_hue-green-100);
-	/* 0.2.3: primary 의 밝기에서 자동 선택 — 밝으면(l ≥ 0.62) 진회색, 어두우면 흰색. 테마가 --brand 만 바꿔도 대비가 유지된다 */
-	--color-on-primary: oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0);
+	/* primary 의 밝기에서 자동 선택 — 어두우면(l < 0.62) 흰색, 밝으면 같은 색상의 진한 색(l 0.22, 채도 60%).
+	   0.2.5: 밝은 primary 위의 검정(무채색)이 버튼 글자·스위치 손잡이·배지에서 색과 따로 놀아 브랜드색 계열의 진한 색으로.
+	   테마가 --brand 만 바꿔도 대비(4.5 이상)가 유지된다 */
+	--color-on-primary: oklch(
+		from var(--color-primary)
+		clamp(0.22, calc((0.62 - l) * 1000), 1)
+		calc(c * 0.6 * (1 - clamp(0, calc((0.62 - l) * 1000), 1)))
+		h
+	);
 
 	/* ===== Brand — Secondary ===== */
 	--color-secondary: var(--_hue-blue-500);
@@ -337,7 +344,12 @@
 		--color-primary-hover: var(--_hue-green-300);
 		--color-primary-active: var(--_hue-green-200);
 		--color-primary-subtle: var(--_hue-green-900);
-		--color-on-primary: oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0);
+		--color-on-primary: oklch(
+			from var(--color-primary)
+			clamp(0.22, calc((0.62 - l) * 1000), 1)
+			calc(c * 0.6 * (1 - clamp(0, calc((0.62 - l) * 1000), 1)))
+			h
+		);
 
 		--color-secondary: var(--_hue-blue-400);
 		--color-secondary-hover: var(--_hue-blue-300);
@@ -418,7 +430,12 @@
 	--color-primary-hover: var(--_hue-green-300);
 	--color-primary-active: var(--_hue-green-200);
 	--color-primary-subtle: var(--_hue-green-900);
-	--color-on-primary: oklch(from var(--color-primary) clamp(0.15, calc((0.62 - l) * 1000), 1) 0 0);
+	--color-on-primary: oklch(
+		from var(--color-primary)
+		clamp(0.22, calc((0.62 - l) * 1000), 1)
+		calc(c * 0.6 * (1 - clamp(0, calc((0.62 - l) * 1000), 1)))
+		h
+	);
 
 	--color-secondary: var(--_hue-blue-400);
 	--color-secondary-hover: var(--_hue-blue-300);
