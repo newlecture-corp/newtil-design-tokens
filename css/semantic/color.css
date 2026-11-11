@@ -79,6 +79,13 @@
 	--color-text-inverse: var(--_hue-white);
 	--color-text-disabled: var(--_hue-gray-400);
 
+	/* ===== Ink — 글쓴이가 고른 글자 색 (0.2.7) =====
+	 * 편집기는 씨앗(아무 색)만 저장하고, 페이지가 틴트 규칙으로 밝기를 눕힌다: 라이트는 흰 바닥 위라 l ≤ 0.53(primary 와 같은 깊이),
+	 * 다크는 l ≥ 0.72. 색상·채도는 씨앗 그대로. 공식은 components `.n-prose .n-ink` 가 갖고, 여기는 두 경계값만 둔다
+	 * (var(--ink) 는 글자마다 다르므로 :root 에서 공식을 만들 수 없다). */
+	--color-ink-l-min: 0;
+	--color-ink-l-max: 0.53;
+
 	/* ===== Link ===== */
 	--color-link: var(--_hue-blue-600);          /* blue-500 은 흰 바탕 대비 3.68 로 본문 AA 미달 */
 	--color-link-hover: var(--_hue-blue-700);
@@ -169,6 +176,9 @@
 		--color-text-subtle: var(--_hue-gray-500);   /* 0.2.1: 600(대비 2.53) → 500(4.17) */
 		--color-text-inverse: var(--_hue-gray-900);
 		--color-text-disabled: var(--_hue-gray-600);
+
+		--color-ink-l-min: 0.72;
+		--color-ink-l-max: 1;
 
 		--color-link: var(--_hue-blue-400);
 		--color-link-hover: var(--_hue-blue-300);
